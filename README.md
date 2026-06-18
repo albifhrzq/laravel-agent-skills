@@ -10,7 +10,14 @@ This repository is intentionally Laravel-focused. It is not a generic full-stack
 |---|---|
 | `laravel-api-design` | Laravel 13 API route setup, REST route design, FormRequest validation, API Resources, JSON:API Resources, error envelopes, auth, authorization, JWT lifecycle, pagination, idempotency, rate limiting, OpenAPI docs, and feature tests. |
 
-## Install
+## Available Agents
+
+| Agent | Purpose |
+|---|---|
+| `laravel-code-tracer` | Trace Laravel execution flow from route/command/job/event/webhook to validation, authorization, business logic, database, side effects, and response. |
+| `laravel-code-reviewer` | Review Laravel code changes for correctness, API contract stability, validation, authorization, security, performance, tests, docs, and production readiness. |
+
+## Install Skill
 
 ```bash
 npx skills add albifhrzq/laravel-agent-skills --skill laravel-api-design
@@ -20,6 +27,17 @@ Or copy a skill folder manually into your project:
 
 ```text
 .agents/skills/laravel-api-design/
+```
+
+## Agent Layout
+
+```text
+agents/
+├── README.md
+├── laravel-code-tracer/
+│   └── SKILL.md
+└── laravel-code-reviewer/
+    └── SKILL.md
 ```
 
 ## Skill Layout
