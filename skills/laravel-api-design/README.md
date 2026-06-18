@@ -27,7 +27,8 @@ Or copy this folder into your repository:
 - JsonResource, ResourceCollection, and Laravel 13 JSON:API Resource guidance.
 - Consistent success and error response envelopes.
 - Policy/gate based authorization.
-- Token/JWT/Sanctum lifecycle design.
+- Sanctum token abilities and guard boundary awareness.
+- JWT guard, lifetime, refresh, invalidation/logout, claims, and error behavior.
 - Rate limiting per user, guard, IP, role, or API scope.
 - Cursor/offset pagination, filtering, sorting, and safe query allowlists.
 - Idempotent state transitions for orders, webhooks, imports, notifications, and external integrations.
@@ -44,3 +45,5 @@ For a real product, add a root `AGENTS.md` that defines your API contract, auth 
 ## Source Lookup
 
 When Context7 MCP is available, fetch Laravel 13 docs through Context7 before editing Laravel-specific API behavior. If Context7 is not available, use the official Laravel 13 docs directly.
+
+For JWT-specific work, also fetch or check the selected JWT package documentation, such as `tymon/jwt-auth`, `lcobucci/jwt`, a maintained fork, or the external identity provider documentation.
