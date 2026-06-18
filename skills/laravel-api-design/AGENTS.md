@@ -1,12 +1,17 @@
 # Laravel API Design - Complete Reference
 
-**Version:** 1.0.2  
+**Version:** 1.1.0  
 **Target:** Laravel 13.x, PHP 8.3+  
 **License:** MIT
 
 ## Purpose
 
 Use this guide when designing, reviewing, or implementing Laravel API endpoints. The goal is not just to make routes work, but to keep API contracts stable, testable, secure, and easy for clients to consume.
+
+This skill has two layers:
+
+- `rules/` contains concise guardrails and acceptance criteria.
+- `references/` contains longer implementation guides, examples, trade-offs, and review checklists.
 
 ## Source of Truth
 
@@ -18,6 +23,16 @@ When working on Laravel-specific behavior, use this order:
 4. Existing code patterns in the repository.
 
 For JWT-specific behavior, also check the selected JWT package or identity provider documentation before changing guard config, credential lifetime, refresh, invalidation, claims, or error behavior.
+
+## Reference Guides
+
+Read the relevant reference guide when the task needs more than a short rule:
+
+- `references/laravel-13-api-routing-guide.md`
+- `references/laravel-13-form-request-validation-guide.md`
+- `references/laravel-13-api-resource-guide.md`
+- `references/laravel-13-auth-authorization-guide.md`
+- `references/laravel-13-jwt-auth-guide.md`
 
 ## Core Principles
 
@@ -145,6 +160,7 @@ Before accepting API changes, verify:
 
 - Context7 or Laravel 13 docs were checked for Laravel-specific behavior.
 - Selected JWT package docs were checked when JWT behavior changes.
+- Relevant `references/` guide was read when the task is more than a small edit.
 - `routes/api.php` does not accidentally duplicate the `/api` prefix.
 - Routes are versioned when needed.
 - Endpoints use resource naming or explicit transition resources.
