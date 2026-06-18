@@ -1,7 +1,7 @@
 {
   "name": "laravel-api-design",
-  "version": "1.0.0",
-  "description": "Laravel 13 API design patterns for REST endpoints, validation, resources, auth, authorization, pagination, idempotency, rate limiting, OpenAPI docs, and feature tests.",
+  "version": "1.0.1",
+  "description": "Laravel 13 API design patterns for API route setup, REST endpoints, validation, resources, JSON:API resources, auth, authorization, pagination, idempotency, rate limiting, OpenAPI docs, and feature tests.",
   "framework": "Laravel",
   "laravelVersion": "13.x",
   "phpVersion": "8.3+",
@@ -12,7 +12,8 @@
     "validation",
     "security",
     "testing",
-    "documentation"
+    "documentation",
+    "context7"
   ],
   "license": "MIT"
 }
