@@ -4,7 +4,7 @@ description: Laravel 13 API design knowledge base for REST endpoints, API route 
 license: MIT
 metadata:
   author: albifhrzq
-  version: "1.1.0"
+  version: "1.2.0"
   framework: Laravel
   laravelVersion: "13.x"
   phpVersion: "8.3+"
@@ -60,6 +60,13 @@ Read these when the task needs implementation detail beyond a checklist:
 | API resources | `references/laravel-13-api-resource-guide.md` |
 | Auth & authorization | `references/laravel-13-auth-authorization-guide.md` |
 | JWT auth | `references/laravel-13-jwt-auth-guide.md` |
+| Error handling | `references/laravel-13-error-handling-guide.md` |
+| Pagination & filtering | `references/laravel-13-pagination-filtering-guide.md` |
+| Rate limiting | `references/laravel-13-rate-limiting-guide.md` |
+| Idempotency & webhooks | `references/laravel-13-idempotency-webhook-guide.md` |
+| API testing | `references/laravel-13-api-testing-guide.md` |
+| OpenAPI documentation | `references/laravel-13-openapi-documentation-guide.md` |
+| Production checklist | `references/laravel-13-production-checklist.md` |
 
 ## Laravel API Defaults
 
