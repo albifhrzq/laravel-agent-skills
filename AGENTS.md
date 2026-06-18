@@ -16,6 +16,14 @@ Keep this repository focused on Laravel and Laravel-adjacent engineering workflo
 
 Avoid adding unrelated framework skills unless they directly support Laravel projects.
 
+## Documentation Grounding
+
+For Laravel-specific guidance, check documentation before editing rules:
+
+1. Use Context7 Laravel docs when Context7 MCP is available.
+2. Otherwise use the official Laravel documentation for the target version.
+3. Project-level conventions may be stricter than Laravel defaults, but they should be marked as project conventions.
+
 ## Skill Structure
 
 Each skill should live under:
@@ -39,6 +47,7 @@ A small skill may omit `rules/`, but mature skills should split detailed guidanc
 - Mention trade-offs when rules depend on project context.
 - Avoid over-prescribing when Laravel has multiple valid approaches.
 - Make security, testing, and backward compatibility explicit.
+- Do not guess Laravel behavior that can be checked in the current docs.
 
 ## Compatibility
 
@@ -53,3 +62,4 @@ A new skill is ready when it includes:
 - A compiled `AGENTS.md` or equivalent full guide.
 - Rule files for important areas.
 - Practical Laravel code examples.
+- Documentation/source grounding notes.
