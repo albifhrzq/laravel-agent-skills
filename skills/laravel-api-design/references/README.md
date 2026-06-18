@@ -13,6 +13,13 @@ Use this folder when the task needs more than a checklist: implementation patter
 | API Resources | `laravel-13-api-resource-guide.md` | `JsonResource`, `ResourceCollection`, conditional fields, `whenLoaded`, pagination metadata, JSON:API decision points. |
 | Auth & Authorization | `laravel-13-auth-authorization-guide.md` | Guards, middleware, policies, gates, role/tenant checks, Sanctum abilities, forbidden vs unauthenticated behavior. |
 | JWT Auth | `laravel-13-jwt-auth-guide.md` | JWT package selection, guard boundaries, lifetime, refresh, invalidation, claims, error mapping, and tests. |
+| Error Handling | `laravel-13-error-handling-guide.md` | `withExceptions`, JSON error rendering, status code mapping, error envelopes, request IDs. |
+| Pagination & Filtering | `laravel-13-pagination-filtering-guide.md` | `paginate`, `simplePaginate`, `cursorPaginate`, filter/sort allowlists, index awareness. |
+| Rate Limiting | `laravel-13-rate-limiting-guide.md` | `RateLimiter::for`, `throttle:*`, auth-sensitive limits, 429 error responses. |
+| Idempotency & Webhooks | `laravel-13-idempotency-webhook-guide.md` | Retry-safe writes, idempotency keys, duplicate handling, webhook events, queue side effects. |
+| API Testing | `laravel-13-api-testing-guide.md` | JSON test helpers, success/failure matrix, auth tests, resource tests, idempotency tests. |
+| OpenAPI Documentation | `laravel-13-openapi-documentation-guide.md` | API docs, request/response examples, auth docs, error code docs, versioning/deprecation notes. |
+| Production Checklist | `laravel-13-production-checklist.md` | Final review checklist before API work is treated as production-ready. |
 
 ## Maintenance Rule
 
