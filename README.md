@@ -9,6 +9,7 @@ This repository is intentionally Laravel-focused. It is not a generic full-stack
 | Skill | Purpose |
 |---|---|
 | `laravel-api-design` | Laravel 13 API route setup, REST route design, FormRequest validation, API Resources, JSON:API Resources, error envelopes, auth, authorization, JWT lifecycle, pagination, idempotency, rate limiting, OpenAPI docs, and feature tests. |
+| `laravel-database-design` | Laravel 13 database design for migrations, schema, Eloquent relationships, constraints, indexes, query performance, transactions, seeders, and production migration safety. |
 | `laravel-code-tracer` | Codex skill wrapper for tracing Laravel execution flow from route/command/job/event/webhook to validation, authorization, business logic, database, side effects, and response. |
 | `laravel-code-reviewer` | Codex skill wrapper for reviewing Laravel code changes for correctness, API contract stability, validation, authorization, security, performance, tests, docs, and production readiness. |
 
@@ -21,10 +22,11 @@ This repository is intentionally Laravel-focused. It is not a generic full-stack
 
 ## Install Skills for Codex
 
-Install the main Laravel API design skill:
+Install API and database design skills:
 
 ```bash
 npx skills add albifhrzq/laravel-agent-skills --skill laravel-api-design
+npx skills add albifhrzq/laravel-agent-skills --skill laravel-database-design
 ```
 
 Install tracer and reviewer as Codex-visible skills:
@@ -34,10 +36,11 @@ npx skills add albifhrzq/laravel-agent-skills --skill laravel-code-tracer
 npx skills add albifhrzq/laravel-agent-skills --skill laravel-code-reviewer
 ```
 
-Or install all three:
+Install all current skills:
 
 ```bash
 npx skills add albifhrzq/laravel-agent-skills --skill laravel-api-design
+npx skills add albifhrzq/laravel-agent-skills --skill laravel-database-design
 npx skills add albifhrzq/laravel-agent-skills --skill laravel-code-tracer
 npx skills add albifhrzq/laravel-agent-skills --skill laravel-code-reviewer
 ```
@@ -46,6 +49,7 @@ npx skills add albifhrzq/laravel-agent-skills --skill laravel-code-reviewer
 
 ```text
 .agents/skills/laravel-api-design/
+.agents/skills/laravel-database-design/
 .agents/skills/laravel-code-tracer/
 .agents/skills/laravel-code-reviewer/
 ```
@@ -66,7 +70,7 @@ agents/
 Each mature skill uses two guidance layers:
 
 ```text
-skills/laravel-api-design/
+skills/<skill-name>/
 ├── SKILL.md
 ├── AGENTS.md
 ├── rules/        # short rules, guardrails, acceptance criteria
@@ -85,6 +89,7 @@ In each Laravel project, combine these skills with a project-level `AGENTS.md` t
 - App architecture conventions.
 - API response contract.
 - Auth guard/token strategy.
+- Database conventions.
 - Roles and permissions.
 - Test commands.
 - Deployment constraints.
@@ -98,9 +103,11 @@ your-laravel-project/
 ├── .agents/
 │   └── skills/
 │       ├── laravel-api-design/
+│       ├── laravel-database-design/
 │       ├── laravel-code-tracer/
 │       └── laravel-code-reviewer/
 ├── app/
+├── database/
 ├── routes/
 └── tests/
 ```
