@@ -1,10 +1,10 @@
 ---
 name: laravel-api-design
-description: Laravel 13 API design patterns for REST endpoints, API route setup, FormRequest validation, API Resources, JSON:API Resources, policies, Sanctum/JWT token auth, rate limiting, pagination, error envelopes, OpenAPI docs, and production-ready API contracts. Use when designing, reviewing, or implementing Laravel API routes/controllers/resources/tests.
+description: Laravel 13 API design knowledge base for REST endpoints, API route setup, FormRequest validation, API Resources, JSON:API Resources, policies, Sanctum/JWT token auth, rate limiting, pagination, error envelopes, OpenAPI docs, and production-ready API contracts. Use when designing, reviewing, or implementing Laravel API routes/controllers/resources/tests.
 license: MIT
 metadata:
   author: albifhrzq
-  version: "1.0.2"
+  version: "1.1.0"
   framework: Laravel
   laravelVersion: "13.x"
   phpVersion: "8.3+"
@@ -12,7 +12,10 @@ metadata:
 
 # Laravel API Design
 
-Production-oriented API design guidance for Laravel 13 applications. This skill translates API design patterns into Laravel-native implementation rules: `routes/api.php`, `Route::apiResource`, FormRequest validation, JsonResource / ResourceCollection / JSON:API Resources, policies, guards, Sanctum/JWT authentication, rate limiters, pagination, filters, idempotency, OpenAPI documentation, and feature tests.
+Production-oriented Laravel 13 API design knowledge base. This skill has two layers:
+
+- `rules/` for short guardrails and acceptance criteria.
+- `references/` for longer implementation guides, examples, trade-offs, and edge cases.
 
 ## Source of Truth
 
@@ -30,21 +33,33 @@ Use this skill when the task involves:
 - Designing Sanctum or JWT authentication flows.
 - Adding OpenAPI documentation or API feature tests.
 
-## Priority Rules
+## Quick Rule Index
 
 | Priority | Category | Impact | Rule files |
 |---|---|---:|---|
-| 1 | Documentation grounding | CRITICAL | `laravel-docs-grounding.md` |
-| 2 | Laravel API setup | HIGH | `api-route-installation.md` |
-| 3 | Route design | CRITICAL | `route-design.md` |
-| 4 | Validation | CRITICAL | `request-validation.md` |
-| 5 | Response contract | CRITICAL | `api-resource-response.md`, `error-envelope.md` |
-| 6 | Auth & authorization | CRITICAL | `auth-authorization.md` |
-| 7 | JWT lifecycle | CRITICAL | `jwt-token-lifecycle.md` |
-| 8 | Querying collections | HIGH | `pagination-filtering-sorting.md` |
-| 9 | Side effects | HIGH | `idempotency-and-side-effects.md` |
-| 10 | Abuse prevention | HIGH | `rate-limiting.md` |
-| 11 | Documentation & tests | HIGH | `openapi-and-tests.md` |
+| 1 | Documentation grounding | CRITICAL | `rules/laravel-docs-grounding.md` |
+| 2 | Laravel API setup | HIGH | `rules/api-route-installation.md` |
+| 3 | Route design | CRITICAL | `rules/route-design.md` |
+| 4 | Validation | CRITICAL | `rules/request-validation.md` |
+| 5 | Response contract | CRITICAL | `rules/api-resource-response.md`, `rules/error-envelope.md` |
+| 6 | Auth & authorization | CRITICAL | `rules/auth-authorization.md` |
+| 7 | JWT lifecycle | CRITICAL | `rules/jwt-token-lifecycle.md` |
+| 8 | Querying collections | HIGH | `rules/pagination-filtering-sorting.md` |
+| 9 | Side effects | HIGH | `rules/idempotency-and-side-effects.md` |
+| 10 | Abuse prevention | HIGH | `rules/rate-limiting.md` |
+| 11 | Documentation & tests | HIGH | `rules/openapi-and-tests.md` |
+
+## Reference Guide Index
+
+Read these when the task needs implementation detail beyond a checklist:
+
+| Topic | Reference file |
+|---|---|
+| API routing | `references/laravel-13-api-routing-guide.md` |
+| FormRequest validation | `references/laravel-13-form-request-validation-guide.md` |
+| API resources | `references/laravel-13-api-resource-guide.md` |
+| Auth & authorization | `references/laravel-13-auth-authorization-guide.md` |
+| JWT auth | `references/laravel-13-jwt-auth-guide.md` |
 
 ## Laravel API Defaults
 
@@ -67,4 +82,4 @@ Prefer these defaults unless the project already defines a different API contrac
 
 ## Files to Read
 
-Start with `AGENTS.md` for the full compiled guide, then read `rules/_sections.md` and the relevant rule files in `rules/` when working on a specific area.
+Start with `AGENTS.md` for the compiled guide. Then read `rules/_sections.md` for rule order and `references/README.md` for detailed guide selection.
