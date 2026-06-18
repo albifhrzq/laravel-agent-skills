@@ -8,7 +8,7 @@ This repository is intentionally Laravel-focused. It is not a generic full-stack
 
 | Skill | Purpose |
 |---|---|
-| `laravel-api-design` | Laravel 13 API route setup, REST route design, FormRequest validation, API Resources, JSON:API Resources, error envelopes, auth, authorization, pagination, idempotency, rate limiting, OpenAPI docs, and feature tests. |
+| `laravel-api-design` | Laravel 13 API route setup, REST route design, FormRequest validation, API Resources, JSON:API Resources, error envelopes, auth, authorization, JWT lifecycle, pagination, idempotency, rate limiting, OpenAPI docs, and feature tests. |
 
 ## Install
 
@@ -20,6 +20,18 @@ Or copy a skill folder manually into your project:
 
 ```text
 .agents/skills/laravel-api-design/
+```
+
+## Skill Layout
+
+Each mature skill uses two guidance layers:
+
+```text
+skills/laravel-api-design/
+├── SKILL.md
+├── AGENTS.md
+├── rules/        # short rules, guardrails, acceptance criteria
+└── references/   # longer guides, examples, trade-offs, edge cases
 ```
 
 ## Documentation Grounding
