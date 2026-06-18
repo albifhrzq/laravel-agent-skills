@@ -1,6 +1,6 @@
 # Laravel API Design - Complete Reference
 
-**Version:** 1.0.0  
+**Version:** 1.0.1  
 **Target:** Laravel 13.x, PHP 8.3+  
 **License:** MIT
 
@@ -8,20 +8,34 @@
 
 Use this guide when designing, reviewing, or implementing Laravel API endpoints. The goal is not just to make routes work, but to keep API contracts stable, testable, secure, and easy for clients to consume.
 
+## Source of Truth
+
+When working on Laravel-specific behavior, use this order:
+
+1. Project-level `AGENTS.md` when it defines explicit local conventions.
+2. Context7 Laravel 13 documentation when Context7 MCP is available.
+3. Official Laravel 13 documentation.
+4. Existing code patterns in the repository.
+
 ## Core Principles
 
 1. API routes should expose resources and explicit state transitions, not controller implementation details.
 2. Controllers should stay thin. Business logic belongs in actions, services, domain classes, jobs, or model methods where appropriate.
-3. Validation must be centralized in FormRequest classes for non-trivial endpoints.
-4. Response shape must be intentional and consistent. Use JsonResource and ResourceCollection.
+3. Validation should be centralized in FormRequest classes for non-trivial endpoints.
+4. Response shape must be intentional and consistent. Use JsonResource, ResourceCollection, or Laravel 13 JSON:API Resources when the project follows JSON:API.
 5. Authorization must be enforced through policies, gates, middleware, or FormRequest `authorize()`, not scattered ad-hoc `if` checks.
 6. Collection endpoints must define pagination, filtering, sorting, and safe allowlists.
 7. Side-effecting operations must be designed for retries and idempotency.
 8. API contracts must be covered by feature tests and documentation.
 
+## Laravel 13 API Routing Reminder
+
+Laravel 13 API routing can be enabled with `php artisan install:api`. Under the documented default setup, routes in `routes/api.php` are stateless, assigned to the `api` middleware group, and automatically receive the `/api` URI prefix. Do not add another `api` prefix inside `routes/api.php` unless `bootstrap/app.php` has intentionally customized routing.
+
 ## Recommended Route Shape
 
 ```php
+// routes/api.php
 use App\Http\Controllers\Api\V1\ProductController;
 use Illuminate\Support\Facades\Route;
 
@@ -32,6 +46,8 @@ Route::prefix('v1')
         Route::post('orders/{order}/cancellation', [OrderCancellationController::class, 'store']);
     });
 ```
+
+With Laravel's default API prefix, this produces `/api/v1/products`.
 
 Prefer plural nouns and stable route names. Use nested resources only when the parent relationship matters for authorization or creation.
 
@@ -72,6 +88,8 @@ Prefer one explicit project-wide contract. A common default is:
 }
 ```
 
+For paginated resource responses, Laravel includes pagination `meta` and `links` data. If the project follows the JSON:API specification, prefer Laravel 13 JSON:API Resources instead of inventing a custom JSON:API-like shape.
+
 For errors:
 
 ```json
@@ -91,6 +109,8 @@ Do not expose exception class names, stack traces, SQL errors, token values, or 
 
 ## Rule Files
 
+- `rules/laravel-docs-grounding.md`
+- `rules/api-route-installation.md`
 - `rules/route-design.md`
 - `rules/request-validation.md`
 - `rules/api-resource-response.md`
@@ -105,6 +125,8 @@ Do not expose exception class names, stack traces, SQL errors, token values, or 
 
 Before accepting API changes, verify:
 
+- Context7 or Laravel 13 docs were checked for Laravel-specific behavior.
+- `routes/api.php` does not accidentally duplicate the `/api` prefix.
 - Routes are versioned when needed.
 - Endpoints use resource naming or explicit transition resources.
 - Controllers do not contain large business workflows.
