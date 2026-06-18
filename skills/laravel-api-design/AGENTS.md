@@ -1,6 +1,6 @@
 # Laravel API Design - Complete Reference
 
-**Version:** 1.1.0  
+**Version:** 1.2.0  
 **Target:** Laravel 13.x, PHP 8.3+  
 **License:** MIT
 
@@ -33,6 +33,13 @@ Read the relevant reference guide when the task needs more than a short rule:
 - `references/laravel-13-api-resource-guide.md`
 - `references/laravel-13-auth-authorization-guide.md`
 - `references/laravel-13-jwt-auth-guide.md`
+- `references/laravel-13-error-handling-guide.md`
+- `references/laravel-13-pagination-filtering-guide.md`
+- `references/laravel-13-rate-limiting-guide.md`
+- `references/laravel-13-idempotency-webhook-guide.md`
+- `references/laravel-13-api-testing-guide.md`
+- `references/laravel-13-openapi-documentation-guide.md`
+- `references/laravel-13-production-checklist.md`
 
 ## Core Principles
 
