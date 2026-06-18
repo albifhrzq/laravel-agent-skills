@@ -9,24 +9,45 @@ This repository is intentionally Laravel-focused. It is not a generic full-stack
 | Skill | Purpose |
 |---|---|
 | `laravel-api-design` | Laravel 13 API route setup, REST route design, FormRequest validation, API Resources, JSON:API Resources, error envelopes, auth, authorization, JWT lifecycle, pagination, idempotency, rate limiting, OpenAPI docs, and feature tests. |
+| `laravel-code-tracer` | Codex skill wrapper for tracing Laravel execution flow from route/command/job/event/webhook to validation, authorization, business logic, database, side effects, and response. |
+| `laravel-code-reviewer` | Codex skill wrapper for reviewing Laravel code changes for correctness, API contract stability, validation, authorization, security, performance, tests, docs, and production readiness. |
 
 ## Available Agents
 
 | Agent | Purpose |
 |---|---|
-| `laravel-code-tracer` | Trace Laravel execution flow from route/command/job/event/webhook to validation, authorization, business logic, database, side effects, and response. |
-| `laravel-code-reviewer` | Review Laravel code changes for correctness, API contract stability, validation, authorization, security, performance, tests, docs, and production readiness. |
+| `laravel-code-tracer` | Agent version of the Laravel execution flow tracer. |
+| `laravel-code-reviewer` | Agent version of the Laravel code reviewer. |
 
-## Install Skill
+## Install Skills for Codex
+
+Install the main Laravel API design skill:
 
 ```bash
 npx skills add albifhrzq/laravel-agent-skills --skill laravel-api-design
 ```
 
-Or copy a skill folder manually into your project:
+Install tracer and reviewer as Codex-visible skills:
+
+```bash
+npx skills add albifhrzq/laravel-agent-skills --skill laravel-code-tracer
+npx skills add albifhrzq/laravel-agent-skills --skill laravel-code-reviewer
+```
+
+Or install all three:
+
+```bash
+npx skills add albifhrzq/laravel-agent-skills --skill laravel-api-design
+npx skills add albifhrzq/laravel-agent-skills --skill laravel-code-tracer
+npx skills add albifhrzq/laravel-agent-skills --skill laravel-code-reviewer
+```
+
+## Manual Copy
 
 ```text
 .agents/skills/laravel-api-design/
+.agents/skills/laravel-code-tracer/
+.agents/skills/laravel-code-reviewer/
 ```
 
 ## Agent Layout
@@ -76,8 +97,9 @@ your-laravel-project/
 ├── AGENTS.md
 ├── .agents/
 │   └── skills/
-│       └── laravel-api-design/
-│           └── SKILL.md
+│       ├── laravel-api-design/
+│       ├── laravel-code-tracer/
+│       └── laravel-code-reviewer/
 ├── app/
 ├── routes/
 └── tests/
