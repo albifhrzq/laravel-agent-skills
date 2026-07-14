@@ -1,18 +1,18 @@
-# References
+# Source Baseline
 
-This repository should be kept aligned with the official Laravel documentation for the target Laravel version.
+The machine-readable baseline is `skills/laravel-13/source-lock.json`. As verified on 2026-07-13:
 
-## Laravel 13 Official Docs
+- Laravel 13 documentation: `6d8246ff751a299421520660979cc34a2b255bc9`
+- Root documentation inventory: 103 pages, SHA-256 `80822e8acfd0bb3c63046975c5cbea0633e92caf24f189d7cec772af64aeafd2`
+- Laravel Framework: `v13.19.0`, `514502b38e11bd676ecf83b271c9452cc7500f16`
+- Laravel application skeleton: `43f3606336468af53f85aa6c993ce72041c63a61`
+- Context7 library: `/laravel/docs/__branch__13.x`
 
-- Installation and agentic development: https://laravel.com/docs/13.x
-- Routing and API routes: https://laravel.com/docs/13.x/routing
-- Validation and FormRequest: https://laravel.com/docs/13.x/validation
-- API Resources: https://laravel.com/docs/13.x/eloquent-resources
-- Rate Limiting: https://laravel.com/docs/13.x/rate-limiting
-- Authorization: https://laravel.com/docs/13.x/authorization
-- HTTP Tests: https://laravel.com/docs/13.x/http-tests
-- Sanctum: https://laravel.com/docs/13.x/sanctum
+Primary entry points:
 
-## Maintenance Rule
+- https://laravel.com/docs/13.x
+- https://github.com/laravel/docs/tree/13.x
+- https://github.com/laravel/framework/tree/13.x
+- https://github.com/laravel/laravel/tree/13.x
 
-When updating a skill, check the official Laravel 13 docs first. If Context7 MCP is available in the coding agent environment, use Context7 to fetch Laravel documentation before editing rule files.
+Installed project code and version remain the first source for a target repository. Live primary sources are freshness checks against the reproducible lock. `npm run check:source-drift` verifies locked integrity, the newest stable `v13.*` tag, and the page inventory directly from the pinned Git tree.

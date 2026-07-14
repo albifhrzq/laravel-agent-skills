@@ -1,128 +1,96 @@
 ---
 name: laravel-code-tracer
-description: Trace Laravel 13 code execution flow from entry point to exit. Use proactively when planning tasks, debugging behavior, reviewing APIs, understanding feature flow, or investigating bugs. Follows routes, controllers, FormRequests, middleware, policies, services/actions, models, events, listeners, jobs, notifications, webhooks, database writes, and side effects without skipping important execution paths.
-license: MIT
-metadata:
-  author: albifhrzq
-  version: "1.0.0"
-  framework: Laravel
-  laravelVersion: "13.x"
-  phpVersion: "8.3+"
-  type: codex-skill-wrapper
+description: Use when tracing, debugging, planning, or explaining Laravel execution from an HTTP route, command, schedule, job, event, listener, model hook, test, or webhook through security, database, queue, UI, and side effects using the laravel-13 master skill.
 ---
 
 # Laravel Code Tracer
 
-This is the Codex skill version of `agents/laravel-code-tracer`.
+Trace only. Do not modify code while operating in tracer mode.
 
-Use this skill when you need to trace Laravel execution flow before changing or reviewing behavior.
+## Required grounding
 
-## Source of Truth
+1. Resolve `laravel/framework` from `composer.lock`, then `composer.json`, then `php artisan --version` when safe.
+2. Read project `AGENTS.md`, configuration, routes, service providers, and relevant tests.
+3. Read the installed sibling `laravel-13/SKILL.md` (commonly `.agents/skills/laravel-13/SKILL.md`; in this repository, `skills/laravel-13/SKILL.md`) and select references through its `routing-map.json`.
+4. If the detected version is not Laravel 13, report the mismatch and use version-matched official evidence.
+5. Distinguish proven calls from framework convention, dynamic resolution, and inference.
 
-Before tracing Laravel API behavior, read:
+## Trace entry points
 
-1. Project root `AGENTS.md`.
-2. `skills/laravel-api-design/SKILL.md`.
-3. Relevant `skills/laravel-api-design/references/*.md` files.
-4. Existing code patterns in the repository.
-5. Context7 Laravel 13 docs when framework behavior is unclear.
+- HTTP route, controller, middleware, route binding, request, view, or response;
+- console command or scheduled callback;
+- queued job, batch, chain, or failed-job retry;
+- event, listener, broadcast, notification, or mail;
+- model event, observer, cast, accessor, scope, or relationship;
+- webhook, external HTTP callback, filesystem event, or cache interaction;
+- feature, unit, console, database, or browser test.
 
-## Trace These Paths
+## Trace process
 
-- HTTP API route
-- controller method
-- FormRequest validation and authorization
-- middleware stack
-- route model binding
-- policy or gate checks
-- service/action/domain calls
-- Eloquent queries and writes
-- transactions
-- events and listeners
-- queued jobs
-- notifications
-- external integrations
-- webhook handling
-- response Resource or error rendering
-- tests that cover the path
+1. Locate the exact entry point and trigger.
+2. Resolve middleware order, guards, session/CSRF, bindings, and request validation.
+3. Follow authorization through FormRequest, gate, policy, controller attribute, or explicit check.
+4. Follow controller/command/job handoffs into actions, services, domain objects, models, and package code.
+5. Record database reads, writes, constraints, transactions, locks, eager loading, and query count.
+6. Follow cache, event, listener, job, notification, mail, file, and external HTTP side effects.
+7. For queued work, trace serialization, connection/queue, delay, retry, timeout, uniqueness, and after-commit behavior.
+8. Trace the final response, redirect, view, command exit, job completion, or error renderer.
+9. Locate tests that prove each important branch.
+10. Mark unresolved dynamic behavior explicitly.
 
-## Process
+## Evidence rules
 
-1. Identify the entry point.
-2. Follow middleware, guards, and bindings.
-3. Follow FormRequest validation and authorization.
-4. Follow controller handoff.
-5. Follow services/actions/domain/model calls.
-6. Identify database reads, writes, transactions, and N+1 risks.
-7. Identify side effects such as jobs, events, notifications, external calls, files, cache, and webhooks.
-8. Trace the final response or exit point.
-9. Report missing tests or unclear behavior.
+- Cite `path:line` for application behavior.
+- Do not claim a call occurs merely because a conventional class exists.
+- Inspect service-container bindings, middleware registration, event discovery, queue configuration, and package providers when indirection is present.
+- Separate synchronous execution from after-response, queued, scheduled, and after-commit work.
+- Show transaction boundaries around dispatched work and external side effects.
 
-## Output Format
+## Output
 
-```markdown
-## Laravel Code Execution Flow Trace
+````markdown
+## Laravel Execution Trace
 
-### Entry Point
+### Entry point
 - Type:
-- Location:
 - Trigger:
+- Location:
+- Version evidence:
 
-### Execution Flow
+### Flow
 ```mermaid
-graph TD
-    A[Entry] --> B[Middleware]
-    B --> C[FormRequest]
-    C --> D[Controller]
-    D --> E[Action/Service]
-    E --> F[Model/Database]
-    E --> G[Event/Job]
-    F --> H[Resource]
-    H --> I[JSON Response]
+flowchart TD
+    A[Entry] --> B[Middleware and binding]
+    B --> C[Validation and authorization]
+    C --> D[Application or domain logic]
+    D --> E[Database and side effects]
+    E --> F[Response or exit]
 ```
 
-### Detailed Trace
-1. Entry route or command.
-2. Middleware and guard checks.
-3. Request validation and authorization.
-4. Controller handoff.
-5. Business logic calls.
-6. Database reads/writes.
-7. Events/jobs/side effects.
-8. Response or exit.
+### Detailed evidence
+1. `path:line` — observed behavior.
 
-### Database Summary
+### Database and concurrency
 - Reads:
 - Writes:
-- Transactions:
-- N+1 risk:
-- Index considerations:
+- Transaction/locks:
+- Query risks:
 
-### Security and Authorization Notes
-- Auth guard:
-- Policy/gate checks:
-- Ownership checks:
-- Output exposure risk:
+### Security boundaries
+- Authentication:
+- Authorization:
+- Session/CSRF:
+- Sensitive output:
 
-### Side Effects
-- Jobs:
-- Events:
-- Notifications:
-- External calls:
-- Idempotency/retry notes:
+### Async and integrations
+- Events/jobs:
+- Retries/idempotency:
+- External effects:
 
-### Tests Found
-- Existing tests:
-- Missing tests:
+### Tests and unknowns
+- Proven by:
+- Missing coverage:
+- Unresolved dynamic behavior:
 
-### Open Questions
-- Items that require clarification or cannot be proven from code.
-```
-
-## Rules
-
-- Do not modify code while tracing.
-- Do not claim a path exists unless you found it in code.
-- Mark assumptions clearly.
-- Prefer file:line references whenever possible.
-- Follow indirect calls, events, listeners, and jobs.
+Laravel grounding: detected <version> from <evidence>; read <references>; verified against <primary source>.
+````

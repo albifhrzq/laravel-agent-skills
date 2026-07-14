@@ -1,0 +1,726 @@
+{
+  "schemaVersion": 1,
+  "laravelVersion": "13.x",
+  "sourceCommit": "6d8246ff751a299421520660979cc34a2b255bc9",
+  "sourceInventorySha256": "80822e8acfd0bb3c63046975c5cbea0633e92caf24f189d7cec772af64aeafd2",
+  "generatedAt": "2026-07-13",
+  "pages": [
+    {
+      "slug": "ai-sdk",
+      "classification": "routed",
+      "references": [
+        "references/boost-ai-mcp.md"
+      ]
+    },
+    {
+      "slug": "ai",
+      "classification": "deep",
+      "references": [
+        "references/boost-ai-mcp.md"
+      ]
+    },
+    {
+      "slug": "artisan",
+      "classification": "deep",
+      "references": [
+        "references/events-broadcasting-scheduling.md"
+      ]
+    },
+    {
+      "slug": "authentication",
+      "classification": "deep",
+      "references": [
+        "references/authentication-authorization.md"
+      ]
+    },
+    {
+      "slug": "authorization",
+      "classification": "deep",
+      "references": [
+        "references/authentication-authorization.md"
+      ]
+    },
+    {
+      "slug": "billing",
+      "classification": "routed",
+      "references": [
+        "references/official-packages.md"
+      ]
+    },
+    {
+      "slug": "blade",
+      "classification": "deep",
+      "references": [
+        "references/blade-views-components.md"
+      ]
+    },
+    {
+      "slug": "boost",
+      "classification": "routed",
+      "references": [
+        "references/boost-ai-mcp.md"
+      ]
+    },
+    {
+      "slug": "broadcasting",
+      "classification": "deep",
+      "references": [
+        "references/events-broadcasting-scheduling.md"
+      ]
+    },
+    {
+      "slug": "cache",
+      "classification": "deep",
+      "references": [
+        "references/cache-redis-locks.md"
+      ]
+    },
+    {
+      "slug": "cashier-paddle",
+      "classification": "routed",
+      "references": [
+        "references/official-packages.md"
+      ]
+    },
+    {
+      "slug": "collections",
+      "classification": "deep",
+      "references": [
+        "references/collections-strings-processes.md"
+      ]
+    },
+    {
+      "slug": "concurrency",
+      "classification": "deep",
+      "references": [
+        "references/transactions-concurrency-idempotency.md"
+      ]
+    },
+    {
+      "slug": "configuration",
+      "classification": "deep",
+      "references": [
+        "references/architecture-configuration.md"
+      ]
+    },
+    {
+      "slug": "console-tests",
+      "classification": "deep",
+      "references": [
+        "references/testing-quality.md"
+      ]
+    },
+    {
+      "slug": "container",
+      "classification": "deep",
+      "references": [
+        "references/architecture-configuration.md"
+      ]
+    },
+    {
+      "slug": "context",
+      "classification": "deep",
+      "references": [
+        "references/errors-logging-observability.md"
+      ]
+    },
+    {
+      "slug": "contracts",
+      "classification": "deep",
+      "references": [
+        "references/collections-strings-processes.md"
+      ]
+    },
+    {
+      "slug": "contributions",
+      "classification": "out-of-scope",
+      "reason": "Repository or documentation-maintenance material; it does not define application engineering behavior."
+    },
+    {
+      "slug": "controllers",
+      "classification": "deep",
+      "references": [
+        "references/routing-middleware-controllers.md"
+      ]
+    },
+    {
+      "slug": "csrf",
+      "classification": "deep",
+      "references": [
+        "references/sessions-cookies-csrf.md"
+      ]
+    },
+    {
+      "slug": "database-testing",
+      "classification": "deep",
+      "references": [
+        "references/testing-quality.md"
+      ]
+    },
+    {
+      "slug": "database",
+      "classification": "deep",
+      "references": [
+        "references/queries-performance.md",
+        "references/transactions-concurrency-idempotency.md"
+      ]
+    },
+    {
+      "slug": "deployment",
+      "classification": "deep",
+      "references": [
+        "references/deployment-operations.md"
+      ]
+    },
+    {
+      "slug": "documentation",
+      "classification": "out-of-scope",
+      "reason": "Repository or documentation-maintenance material; it does not define application engineering behavior."
+    },
+    {
+      "slug": "dusk",
+      "classification": "routed",
+      "references": [
+        "references/testing-quality.md"
+      ]
+    },
+    {
+      "slug": "eloquent-collections",
+      "classification": "deep",
+      "references": [
+        "references/eloquent-models-relationships.md"
+      ]
+    },
+    {
+      "slug": "eloquent-factories",
+      "classification": "deep",
+      "references": [
+        "references/migrations-schema-seeding.md"
+      ]
+    },
+    {
+      "slug": "eloquent-mutators",
+      "classification": "deep",
+      "references": [
+        "references/eloquent-models-relationships.md"
+      ]
+    },
+    {
+      "slug": "eloquent-relationships",
+      "classification": "deep",
+      "references": [
+        "references/eloquent-models-relationships.md"
+      ]
+    },
+    {
+      "slug": "eloquent-resources",
+      "classification": "deep",
+      "references": [
+        "references/api-resources-errors-pagination.md"
+      ]
+    },
+    {
+      "slug": "eloquent-serialization",
+      "classification": "deep",
+      "references": [
+        "references/eloquent-models-relationships.md"
+      ]
+    },
+    {
+      "slug": "eloquent",
+      "classification": "deep",
+      "references": [
+        "references/eloquent-models-relationships.md"
+      ]
+    },
+    {
+      "slug": "encryption",
+      "classification": "deep",
+      "references": [
+        "references/security-rate-limiting-encryption.md"
+      ]
+    },
+    {
+      "slug": "envoy",
+      "classification": "routed",
+      "references": [
+        "references/deployment-operations.md"
+      ]
+    },
+    {
+      "slug": "errors",
+      "classification": "deep",
+      "references": [
+        "references/errors-logging-observability.md"
+      ]
+    },
+    {
+      "slug": "events",
+      "classification": "deep",
+      "references": [
+        "references/events-broadcasting-scheduling.md"
+      ]
+    },
+    {
+      "slug": "facades",
+      "classification": "deep",
+      "references": [
+        "references/architecture-configuration.md"
+      ]
+    },
+    {
+      "slug": "filesystem",
+      "classification": "deep",
+      "references": [
+        "references/filesystem-http-webhooks.md"
+      ]
+    },
+    {
+      "slug": "folio",
+      "classification": "routed",
+      "references": [
+        "references/official-packages.md"
+      ]
+    },
+    {
+      "slug": "fortify",
+      "classification": "routed",
+      "references": [
+        "references/official-packages.md"
+      ]
+    },
+    {
+      "slug": "frontend",
+      "classification": "deep",
+      "references": [
+        "references/frontend-vite-starter-kits.md"
+      ]
+    },
+    {
+      "slug": "hashing",
+      "classification": "deep",
+      "references": [
+        "references/security-rate-limiting-encryption.md"
+      ]
+    },
+    {
+      "slug": "helpers",
+      "classification": "deep",
+      "references": [
+        "references/collections-strings-processes.md"
+      ]
+    },
+    {
+      "slug": "homestead",
+      "classification": "routed",
+      "references": [
+        "references/deployment-operations.md"
+      ]
+    },
+    {
+      "slug": "horizon",
+      "classification": "routed",
+      "references": [
+        "references/official-packages.md"
+      ]
+    },
+    {
+      "slug": "http-client",
+      "classification": "deep",
+      "references": [
+        "references/filesystem-http-webhooks.md"
+      ]
+    },
+    {
+      "slug": "http-tests",
+      "classification": "deep",
+      "references": [
+        "references/testing-quality.md"
+      ]
+    },
+    {
+      "slug": "installation",
+      "classification": "deep",
+      "references": [
+        "references/version-grounding.md"
+      ]
+    },
+    {
+      "slug": "license",
+      "classification": "out-of-scope",
+      "reason": "Repository or documentation-maintenance material; it does not define application engineering behavior."
+    },
+    {
+      "slug": "lifecycle",
+      "classification": "deep",
+      "references": [
+        "references/version-grounding.md",
+        "references/routing-middleware-controllers.md"
+      ]
+    },
+    {
+      "slug": "localization",
+      "classification": "deep",
+      "references": [
+        "references/mail-notifications-localization.md"
+      ]
+    },
+    {
+      "slug": "logging",
+      "classification": "deep",
+      "references": [
+        "references/errors-logging-observability.md"
+      ]
+    },
+    {
+      "slug": "mail",
+      "classification": "deep",
+      "references": [
+        "references/mail-notifications-localization.md"
+      ]
+    },
+    {
+      "slug": "mcp",
+      "classification": "routed",
+      "references": [
+        "references/boost-ai-mcp.md"
+      ]
+    },
+    {
+      "slug": "middleware",
+      "classification": "deep",
+      "references": [
+        "references/routing-middleware-controllers.md"
+      ]
+    },
+    {
+      "slug": "migrations",
+      "classification": "deep",
+      "references": [
+        "references/migrations-schema-seeding.md"
+      ]
+    },
+    {
+      "slug": "mix",
+      "classification": "routed",
+      "references": [
+        "references/official-packages.md"
+      ]
+    },
+    {
+      "slug": "mocking",
+      "classification": "deep",
+      "references": [
+        "references/testing-quality.md"
+      ]
+    },
+    {
+      "slug": "mongodb",
+      "classification": "routed",
+      "references": [
+        "references/official-packages.md"
+      ]
+    },
+    {
+      "slug": "notifications",
+      "classification": "deep",
+      "references": [
+        "references/mail-notifications-localization.md"
+      ]
+    },
+    {
+      "slug": "octane",
+      "classification": "routed",
+      "references": [
+        "references/deployment-operations.md"
+      ]
+    },
+    {
+      "slug": "packages",
+      "classification": "deep",
+      "references": [
+        "references/official-packages.md"
+      ]
+    },
+    {
+      "slug": "pagination",
+      "classification": "deep",
+      "references": [
+        "references/api-resources-errors-pagination.md",
+        "references/queries-performance.md"
+      ]
+    },
+    {
+      "slug": "passport",
+      "classification": "routed",
+      "references": [
+        "references/official-packages.md"
+      ]
+    },
+    {
+      "slug": "passwords",
+      "classification": "deep",
+      "references": [
+        "references/authentication-authorization.md"
+      ]
+    },
+    {
+      "slug": "pennant",
+      "classification": "routed",
+      "references": [
+        "references/official-packages.md"
+      ]
+    },
+    {
+      "slug": "pint",
+      "classification": "routed",
+      "references": [
+        "references/official-packages.md"
+      ]
+    },
+    {
+      "slug": "precognition",
+      "classification": "routed",
+      "references": [
+        "references/official-packages.md"
+      ]
+    },
+    {
+      "slug": "processes",
+      "classification": "deep",
+      "references": [
+        "references/collections-strings-processes.md"
+      ]
+    },
+    {
+      "slug": "prompts",
+      "classification": "routed",
+      "references": [
+        "references/official-packages.md"
+      ]
+    },
+    {
+      "slug": "providers",
+      "classification": "deep",
+      "references": [
+        "references/architecture-configuration.md"
+      ]
+    },
+    {
+      "slug": "pulse",
+      "classification": "routed",
+      "references": [
+        "references/official-packages.md"
+      ]
+    },
+    {
+      "slug": "queries",
+      "classification": "deep",
+      "references": [
+        "references/queries-performance.md"
+      ]
+    },
+    {
+      "slug": "queues",
+      "classification": "deep",
+      "references": [
+        "references/queues-jobs.md"
+      ]
+    },
+    {
+      "slug": "rate-limiting",
+      "classification": "deep",
+      "references": [
+        "references/security-rate-limiting-encryption.md"
+      ]
+    },
+    {
+      "slug": "readme",
+      "classification": "out-of-scope",
+      "reason": "Repository or documentation-maintenance material; it does not define application engineering behavior."
+    },
+    {
+      "slug": "redis",
+      "classification": "deep",
+      "references": [
+        "references/cache-redis-locks.md"
+      ]
+    },
+    {
+      "slug": "releases",
+      "classification": "deep",
+      "references": [
+        "references/version-grounding.md"
+      ]
+    },
+    {
+      "slug": "requests",
+      "classification": "deep",
+      "references": [
+        "references/requests-validation-responses.md"
+      ]
+    },
+    {
+      "slug": "responses",
+      "classification": "deep",
+      "references": [
+        "references/requests-validation-responses.md"
+      ]
+    },
+    {
+      "slug": "reverb",
+      "classification": "routed",
+      "references": [
+        "references/official-packages.md"
+      ]
+    },
+    {
+      "slug": "routing",
+      "classification": "deep",
+      "references": [
+        "references/routing-middleware-controllers.md"
+      ]
+    },
+    {
+      "slug": "sail",
+      "classification": "routed",
+      "references": [
+        "references/deployment-operations.md"
+      ]
+    },
+    {
+      "slug": "sanctum",
+      "classification": "routed",
+      "references": [
+        "references/official-packages.md"
+      ]
+    },
+    {
+      "slug": "scheduling",
+      "classification": "deep",
+      "references": [
+        "references/events-broadcasting-scheduling.md"
+      ]
+    },
+    {
+      "slug": "scout",
+      "classification": "routed",
+      "references": [
+        "references/search-vector-reranking.md",
+        "references/official-packages.md"
+      ]
+    },
+    {
+      "slug": "search",
+      "classification": "deep",
+      "references": [
+        "references/search-vector-reranking.md"
+      ]
+    },
+    {
+      "slug": "seeding",
+      "classification": "deep",
+      "references": [
+        "references/migrations-schema-seeding.md"
+      ]
+    },
+    {
+      "slug": "session",
+      "classification": "deep",
+      "references": [
+        "references/sessions-cookies-csrf.md"
+      ]
+    },
+    {
+      "slug": "socialite",
+      "classification": "routed",
+      "references": [
+        "references/official-packages.md"
+      ]
+    },
+    {
+      "slug": "starter-kits",
+      "classification": "routed",
+      "references": [
+        "references/frontend-vite-starter-kits.md"
+      ]
+    },
+    {
+      "slug": "strings",
+      "classification": "deep",
+      "references": [
+        "references/collections-strings-processes.md"
+      ]
+    },
+    {
+      "slug": "structure",
+      "classification": "deep",
+      "references": [
+        "references/architecture-configuration.md"
+      ]
+    },
+    {
+      "slug": "telescope",
+      "classification": "routed",
+      "references": [
+        "references/official-packages.md"
+      ]
+    },
+    {
+      "slug": "testing",
+      "classification": "deep",
+      "references": [
+        "references/testing-quality.md"
+      ]
+    },
+    {
+      "slug": "upgrade",
+      "classification": "deep",
+      "references": [
+        "references/version-grounding.md"
+      ]
+    },
+    {
+      "slug": "urls",
+      "classification": "deep",
+      "references": [
+        "references/blade-views-components.md"
+      ]
+    },
+    {
+      "slug": "valet",
+      "classification": "routed",
+      "references": [
+        "references/deployment-operations.md"
+      ]
+    },
+    {
+      "slug": "validation",
+      "classification": "deep",
+      "references": [
+        "references/requests-validation-responses.md"
+      ]
+    },
+    {
+      "slug": "verification",
+      "classification": "deep",
+      "references": [
+        "references/authentication-authorization.md"
+      ]
+    },
+    {
+      "slug": "views",
+      "classification": "deep",
+      "references": [
+        "references/blade-views-components.md"
+      ]
+    },
+    {
+      "slug": "vite",
+      "classification": "deep",
+      "references": [
+        "references/frontend-vite-starter-kits.md"
+      ]
+    }
+  ]
+}

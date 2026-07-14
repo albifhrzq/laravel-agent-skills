@@ -1,0 +1,21 @@
+{
+  "name": "laravel-13",
+  "version": "2.0.0",
+  "description": "Source-grounded Laravel 13 master skill for backend, API, database, security, session, CSRF, queues, testing, deployment, Blade, Vite, UI, and official package routing.",
+  "framework": "Laravel",
+  "laravelVersion": "13.x",
+  "phpVersion": "8.3+",
+  "type": "master",
+  "license": "MIT",
+  "categories": [
+    "laravel",
+    "backend",
+    "frontend",
+    "api",
+    "database",
+    "security",
+    "testing",
+    "operations",
+    "context7"
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "name": "laravel-agent-skills/laravel-13-fixture",
+  "description": "Minimal Laravel 13 integration fixture for validating source-grounded examples across database drivers.",
+  "type": "project",
+  "license": "MIT",
+  "require": {
+    "php": "^8.3",
+    "laravel/framework": "13.19.0"
+  },
+  "require-dev": {
+    "orchestra/testbench": "11.1.0",
+    "phpunit/phpunit": "^11.5.50"
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "LaravelAgentSkills\\Tests\\": "tests/"
+    }
+  },
+  "config": {
+    "allow-plugins": false,
+    "platform": {
+      "php": "8.3.0"
+    },
+    "sort-packages": true
+  },
+  "scripts": {
+    "test:security": "php vendor/bin/phpunit --configuration phpunit.xml",
+    "test:sqlite": "php tests/database-smoke.php sqlite",
+    "test:mysql": "php tests/database-smoke.php mysql",
+    "test:pgsql": "php tests/database-smoke.php pgsql"
+  }
+}

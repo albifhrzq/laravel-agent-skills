@@ -1,0 +1,50 @@
+name: Validate Laravel 13 skill
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  contract:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: 22.8.0
+          cache: npm
+      - uses: shivammathur/setup-php@bf6b4fbd49ca58e4608c9c89fba0b8d90bd2a39f # 2.35.5
+        with:
+          php-version: '8.3'
+          extensions: pdo_sqlite
+          coverage: none
+      - run: npm ci
+      - run: npm test
+      - run: npm run test:coverage
+      - run: npm run check:generated
+      - run: npm audit --audit-level=high
+
+  laravel-sqlite:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
+        with:
+          persist-credentials: false
+      - uses: shivammathur/setup-php@bf6b4fbd49ca58e4608c9c89fba0b8d90bd2a39f # 2.35.5
+        with:
+          php-version: '8.3'
+          extensions: pdo_sqlite
+          coverage: none
+      - run: composer --working-dir=tests/fixtures/laravel-app validate --strict --no-check-all
+      - run: composer --working-dir=tests/fixtures/laravel-app audit --locked
+      - uses: ramsey/composer-install@b38926e6aa883a48335a05214b1d7afe9d9913ca # 3.1.1
+        with:
+          working-directory: tests/fixtures/laravel-app
+      - run: composer --working-dir=tests/fixtures/laravel-app test:sqlite
+      - run: composer --working-dir=tests/fixtures/laravel-app test:security

@@ -1,0 +1,497 @@
+{
+  "schemaVersion": 1,
+  "verifiedAt": "2026-07-13",
+  "sources": {
+    "laravel-docs-13": {
+      "type": "official",
+      "url": "https://github.com/laravel/docs/tree/6d8246ff751a299421520660979cc34a2b255bc9"
+    },
+    "laravel-framework-13.19.0": {
+      "type": "official",
+      "url": "https://github.com/laravel/framework/tree/514502b38e11bd676ecf83b271c9452cc7500f16"
+    },
+    "laravel-skeleton-13": {
+      "type": "official",
+      "url": "https://github.com/laravel/laravel/tree/43f3606336468af53f85aa6c993ce72041c63a61"
+    },
+    "installed-package-docs": {
+      "type": "package-specific",
+      "rule": "Resolve the installed package and version before opening its primary documentation."
+    },
+    "owasp-file-upload": {
+      "type": "derived-security",
+      "url": "https://cheatsheetseries.owasp.org/cheatsheets/File_Upload_Cheat_Sheet.html"
+    },
+    "owasp-ssrf": {
+      "type": "derived-security",
+      "url": "https://cheatsheetseries.owasp.org/cheatsheets/Server_Side_Request_Forgery_Prevention_Cheat_Sheet.html"
+    }
+  },
+  "claims": {
+    "VERSION-DETECT": {
+      "classification": "derived",
+      "sources": [
+        "laravel-skeleton-13",
+        "laravel-framework-13.19.0"
+      ]
+    },
+    "PROJECT-PRECEDENCE": {
+      "classification": "project-convention",
+      "sources": [
+        "laravel-docs-13"
+      ]
+    },
+    "SECURITY-OVERRIDE": {
+      "classification": "derived",
+      "sources": [
+        "laravel-docs-13"
+      ]
+    },
+    "EXPLICIT-UI": {
+      "classification": "project-convention",
+      "sources": [
+        "laravel-docs-13",
+        "installed-package-docs"
+      ]
+    },
+    "L13-CSRF": {
+      "classification": "official",
+      "sources": [
+        "laravel-docs-13",
+        "laravel-framework-13.19.0"
+      ]
+    },
+    "AUTHZ-DEFAULT": {
+      "classification": "official",
+      "sources": [
+        "laravel-skeleton-13",
+        "laravel-docs-13"
+      ]
+    },
+    "GROUNDING-VISIBLE": {
+      "classification": "project-convention",
+      "sources": [
+        "laravel-docs-13"
+      ]
+    },
+    "SOURCE-VERIFY": {
+      "classification": "derived",
+      "sources": [
+        "laravel-docs-13",
+        "laravel-framework-13.19.0"
+      ]
+    }
+  },
+  "files": {
+    "rules/project-precedence.md": {
+      "classification": "project-convention",
+      "sources": [
+        "laravel-docs-13"
+      ],
+      "contentSha256": "7c28cbb3dbf3a2dae46902b902645be11a784cb2e0d70fc3d22200b750cc9800",
+      "verifiedAt": "2026-07-13"
+    },
+    "rules/security-baseline.md": {
+      "classification": "derived",
+      "sources": [
+        "laravel-docs-13",
+        "laravel-framework-13.19.0"
+      ],
+      "contentSha256": "986721e4773959dd46915fe5222241bf52fcc9dfa7134688c247e1c8dce37a6d",
+      "verifiedAt": "2026-07-13"
+    },
+    "rules/source-and-version.md": {
+      "classification": "derived",
+      "sources": [
+        "laravel-docs-13",
+        "laravel-framework-13.19.0",
+        "laravel-skeleton-13"
+      ],
+      "contentSha256": "b34875bf8217689a6bda949a83ef5db20bfe683fc004daf1e5adcf65043bfd10",
+      "verifiedAt": "2026-07-13"
+    },
+    "rules/ui-package-boundary.md": {
+      "classification": "project-convention",
+      "sources": [
+        "laravel-docs-13",
+        "installed-package-docs"
+      ],
+      "contentSha256": "75a485a5d5676a416face4f8ec398e2d8c15166543437f10d17dc5e131d55482",
+      "verifiedAt": "2026-07-13"
+    },
+    "rules/verification-and-grounding.md": {
+      "classification": "derived",
+      "sources": [
+        "laravel-docs-13",
+        "laravel-framework-13.19.0",
+        "laravel-skeleton-13"
+      ],
+      "contentSha256": "4cb4f9f7c1cd34fce8f5190ef6b88ee2117fe564baacce24de0484df94337bd9",
+      "verifiedAt": "2026-07-13"
+    },
+    "references/api-resources-errors-pagination.md": {
+      "classification": "mixed",
+      "components": [
+        "official",
+        "derived",
+        "project-convention"
+      ],
+      "sources": [
+        "laravel-docs-13",
+        "laravel-framework-13.19.0"
+      ],
+      "contentSha256": "1b28665cf511d74fd6c1bc1cad2c13edf91d5f7acf1c8b7137f5ec0f1ad013b9",
+      "verifiedAt": "2026-07-13"
+    },
+    "references/architecture-configuration.md": {
+      "classification": "mixed",
+      "components": [
+        "official",
+        "derived",
+        "project-convention"
+      ],
+      "sources": [
+        "laravel-docs-13",
+        "laravel-framework-13.19.0",
+        "laravel-skeleton-13"
+      ],
+      "contentSha256": "852fa8bd79a7bfef1681b12561e7cf9cb15c1d36c4811b9b310b001833bd9ceb",
+      "verifiedAt": "2026-07-13"
+    },
+    "references/authentication-authorization.md": {
+      "classification": "mixed",
+      "components": [
+        "official",
+        "derived",
+        "project-convention"
+      ],
+      "sources": [
+        "laravel-docs-13",
+        "laravel-framework-13.19.0",
+        "laravel-skeleton-13"
+      ],
+      "contentSha256": "ec52271ee54070d141bb804fd6197ce9e277a469fce5eb57af4f8e0e3f293ab6",
+      "verifiedAt": "2026-07-13"
+    },
+    "references/blade-views-components.md": {
+      "classification": "mixed",
+      "components": [
+        "official",
+        "derived",
+        "project-convention"
+      ],
+      "sources": [
+        "laravel-docs-13",
+        "laravel-framework-13.19.0"
+      ],
+      "contentSha256": "73a066dfc49f7d79d692c6a7bceb26f5f8ef36b95d7528f3402381371c13f357",
+      "verifiedAt": "2026-07-13"
+    },
+    "references/boost-ai-mcp.md": {
+      "classification": "package-specific",
+      "sources": [
+        "laravel-docs-13",
+        "installed-package-docs"
+      ],
+      "contentSha256": "82bbf4173fed385895552f62abae16fc6d60a82f6d182941f15f109aa5fc2a14",
+      "verifiedAt": "2026-07-13"
+    },
+    "references/cache-redis-locks.md": {
+      "classification": "mixed",
+      "components": [
+        "official",
+        "derived",
+        "project-convention"
+      ],
+      "sources": [
+        "laravel-docs-13",
+        "laravel-framework-13.19.0"
+      ],
+      "contentSha256": "3afdf2f7554feff413b836a0a5485d20d91ae8b48937282e6db48b1f19349e26",
+      "verifiedAt": "2026-07-13"
+    },
+    "references/collections-strings-processes.md": {
+      "classification": "mixed",
+      "components": [
+        "official",
+        "derived",
+        "project-convention"
+      ],
+      "sources": [
+        "laravel-docs-13",
+        "laravel-framework-13.19.0"
+      ],
+      "contentSha256": "ef7b7b15233586cbfac482e10024ef3dc8f3d182a429f2a7889b4663926682d4",
+      "verifiedAt": "2026-07-13"
+    },
+    "references/deployment-operations.md": {
+      "classification": "mixed",
+      "components": [
+        "official",
+        "derived",
+        "project-convention"
+      ],
+      "sources": [
+        "laravel-docs-13",
+        "laravel-framework-13.19.0",
+        "laravel-skeleton-13"
+      ],
+      "contentSha256": "b606bcbadb81011ab6098b4f3ec422c65bde3628f28bfb9dea4a00255d4c2a16",
+      "verifiedAt": "2026-07-13"
+    },
+    "references/eloquent-models-relationships.md": {
+      "classification": "mixed",
+      "components": [
+        "official",
+        "derived",
+        "project-convention"
+      ],
+      "sources": [
+        "laravel-docs-13",
+        "laravel-framework-13.19.0"
+      ],
+      "contentSha256": "cb429c02a0500af5c2f843031b0a23474654c51b36a96e3211d6ed8297412dc5",
+      "verifiedAt": "2026-07-13"
+    },
+    "references/errors-logging-observability.md": {
+      "classification": "mixed",
+      "components": [
+        "official",
+        "derived",
+        "project-convention"
+      ],
+      "sources": [
+        "laravel-docs-13",
+        "laravel-framework-13.19.0"
+      ],
+      "contentSha256": "8b6d72fd89c059f5c05d07bb6e1da3ffc146d57d401c81fe5a04bf33ed3f6881",
+      "verifiedAt": "2026-07-13"
+    },
+    "references/events-broadcasting-scheduling.md": {
+      "classification": "mixed",
+      "components": [
+        "official",
+        "derived",
+        "project-convention"
+      ],
+      "sources": [
+        "laravel-docs-13",
+        "laravel-framework-13.19.0"
+      ],
+      "contentSha256": "55872944caaa3c6c5d6da53393cd6774b8b0d5c619d9642cdf3cb59d231ca1a5",
+      "verifiedAt": "2026-07-13"
+    },
+    "references/filesystem-http-webhooks.md": {
+      "classification": "mixed",
+      "components": [
+        "official",
+        "derived",
+        "project-convention"
+      ],
+      "sources": [
+        "laravel-docs-13",
+        "laravel-framework-13.19.0",
+        "owasp-file-upload",
+        "owasp-ssrf"
+      ],
+      "contentSha256": "a5fbed280626f11e83551d5fb1ffa812d7bbcd549fb7902495eb6bccb1105dcd",
+      "verifiedAt": "2026-07-13"
+    },
+    "references/frontend-vite-starter-kits.md": {
+      "classification": "mixed",
+      "components": [
+        "official",
+        "derived",
+        "project-convention"
+      ],
+      "sources": [
+        "laravel-docs-13",
+        "laravel-framework-13.19.0",
+        "laravel-skeleton-13",
+        "installed-package-docs"
+      ],
+      "contentSha256": "a0269ad5d891ec1cac77839aad932037c0a313861817e99fe6a64578c5a6ab15",
+      "verifiedAt": "2026-07-13"
+    },
+    "references/mail-notifications-localization.md": {
+      "classification": "mixed",
+      "components": [
+        "official",
+        "derived",
+        "project-convention"
+      ],
+      "sources": [
+        "laravel-docs-13",
+        "laravel-framework-13.19.0"
+      ],
+      "contentSha256": "7cda4ab60d4066bf4576df7735c70335a898c7a7d614591e0be17e9007e5bccc",
+      "verifiedAt": "2026-07-13"
+    },
+    "references/migrations-schema-seeding.md": {
+      "classification": "mixed",
+      "components": [
+        "official",
+        "derived",
+        "project-convention"
+      ],
+      "sources": [
+        "laravel-docs-13",
+        "laravel-framework-13.19.0"
+      ],
+      "contentSha256": "e675a3e8cc758d2646ba3ec34a97ee974aea24ab1b2a8d165e8005308cf01e25",
+      "verifiedAt": "2026-07-13"
+    },
+    "references/official-packages.md": {
+      "classification": "package-specific",
+      "sources": [
+        "laravel-docs-13",
+        "installed-package-docs"
+      ],
+      "contentSha256": "b9493adff78833c11fc4d02a26b54f927a98401b5b52c2735e38ed8fcc9ab59d",
+      "verifiedAt": "2026-07-13"
+    },
+    "references/queries-performance.md": {
+      "classification": "mixed",
+      "components": [
+        "official",
+        "derived",
+        "project-convention"
+      ],
+      "sources": [
+        "laravel-docs-13",
+        "laravel-framework-13.19.0"
+      ],
+      "contentSha256": "2b037f963f89a9bc97f76ad2b06e716269ccdc0e53d01120d0126fe9cbd83905",
+      "verifiedAt": "2026-07-13"
+    },
+    "references/queues-jobs.md": {
+      "classification": "mixed",
+      "components": [
+        "official",
+        "derived",
+        "project-convention"
+      ],
+      "sources": [
+        "laravel-docs-13",
+        "laravel-framework-13.19.0"
+      ],
+      "contentSha256": "3e4302f8f6251afcf82baf96ee7e9deb028c146f77d1418a19e696424e67bd36",
+      "verifiedAt": "2026-07-13"
+    },
+    "references/requests-validation-responses.md": {
+      "classification": "mixed",
+      "components": [
+        "official",
+        "derived",
+        "project-convention"
+      ],
+      "sources": [
+        "laravel-docs-13",
+        "laravel-framework-13.19.0"
+      ],
+      "contentSha256": "bc1b35d718cc3a72aac1fa7c8b18f3ee16c3adbd4dd3967226c53a360d6e4a57",
+      "verifiedAt": "2026-07-13"
+    },
+    "references/routing-middleware-controllers.md": {
+      "classification": "mixed",
+      "components": [
+        "official",
+        "derived",
+        "project-convention"
+      ],
+      "sources": [
+        "laravel-docs-13",
+        "laravel-framework-13.19.0"
+      ],
+      "contentSha256": "d342b8f6a0feac9c49193bc89f830f0eb11e8687501898f292f64239c9b488b1",
+      "verifiedAt": "2026-07-13"
+    },
+    "references/search-vector-reranking.md": {
+      "classification": "mixed",
+      "components": [
+        "official",
+        "derived",
+        "project-convention"
+      ],
+      "sources": [
+        "laravel-docs-13",
+        "laravel-framework-13.19.0",
+        "installed-package-docs"
+      ],
+      "contentSha256": "55646accca02c8dcf37a544e5d97643060ee19ed56b6931ed1a859dea6e88cc8",
+      "verifiedAt": "2026-07-13"
+    },
+    "references/security-rate-limiting-encryption.md": {
+      "classification": "mixed",
+      "components": [
+        "official",
+        "derived",
+        "project-convention"
+      ],
+      "sources": [
+        "laravel-docs-13",
+        "laravel-framework-13.19.0"
+      ],
+      "contentSha256": "c87cde4bcbf78e39e77315805a703a5f6f4bb6ad9ec7d59ad6421b8d6faeed07",
+      "verifiedAt": "2026-07-13"
+    },
+    "references/sessions-cookies-csrf.md": {
+      "classification": "mixed",
+      "components": [
+        "official",
+        "derived",
+        "project-convention"
+      ],
+      "sources": [
+        "laravel-docs-13",
+        "laravel-framework-13.19.0",
+        "laravel-skeleton-13"
+      ],
+      "contentSha256": "3e086009349d217fdec5af517008118e5eff46581fceb80d84cedcbdcf0cbb35",
+      "verifiedAt": "2026-07-13"
+    },
+    "references/testing-quality.md": {
+      "classification": "mixed",
+      "components": [
+        "official",
+        "derived",
+        "project-convention"
+      ],
+      "sources": [
+        "laravel-docs-13",
+        "laravel-framework-13.19.0"
+      ],
+      "contentSha256": "6ea629f0a2ba3fd654910e63bddff9954071fcf8e2a3719fbe4235dfae19c3c7",
+      "verifiedAt": "2026-07-13"
+    },
+    "references/transactions-concurrency-idempotency.md": {
+      "classification": "mixed",
+      "components": [
+        "official",
+        "derived",
+        "project-convention"
+      ],
+      "sources": [
+        "laravel-docs-13",
+        "laravel-framework-13.19.0"
+      ],
+      "contentSha256": "15cd00884572dfe53faaa8e955f66c248e04e7f666863e9831ca7e2426739df7",
+      "verifiedAt": "2026-07-13"
+    },
+    "references/version-grounding.md": {
+      "classification": "mixed",
+      "components": [
+        "official",
+        "derived",
+        "project-convention"
+      ],
+      "sources": [
+        "laravel-docs-13",
+        "laravel-framework-13.19.0",
+        "laravel-skeleton-13"
+      ],
+      "contentSha256": "7c62a3e4869d3879341a0b82127f8cd6b964dc8d0291310779607eb39c84f096",
+      "verifiedAt": "2026-07-13"
+    }
+  }
+}

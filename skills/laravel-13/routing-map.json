@@ -1,0 +1,91 @@
+{
+  "schemaVersion": 1,
+  "laravelVersion": "13.x",
+  "versionGate": {
+    "mismatchRoute": "foundation"
+  },
+  "routes": [
+    {
+      "id": "foundation",
+      "triggers": ["composer.lock", "composer.json", "version", "upgrade", "bootstrap", "container", "provider", "providers", "facade", "facades", "configuration", "configurations", "environment", "environments", "structure", "structures"],
+      "ignoredTriggerPhrases": {"facade": ["process facade"]},
+      "references": ["references/version-grounding.md", "references/architecture-configuration.md"]
+    },
+    {
+      "id": "core-utilities",
+      "triggers": ["collection", "collections", "lazy collection", "lazy collections", "lazycollection", "process facade", "processes", "subprocess", "subprocesses", "process pool", "process pools", "process pipeline", "process pipelines", "stringable", "str::", "strings", "framework helper", "framework helpers", "helpers", "illuminate contract", "illuminate contracts", "contracts", "container binding", "container bindings"],
+      "references": ["references/collections-strings-processes.md"]
+    },
+    {
+      "id": "http-api",
+      "triggers": ["api", "route", "routes", "controller", "controllers", "middleware", "formrequest", "formrequests", "validation", "validations", "request", "http requests", "response", "http responses", "jsonresource", "jsonresources", "pagination"],
+      "references": ["references/routing-middleware-controllers.md", "references/requests-validation-responses.md", "references/api-resources-errors-pagination.md"]
+    },
+    {
+      "id": "http-security",
+      "triggers": ["session", "sessions", "cookie", "cookies", "csrf", "authentication", "authorization", "policy", "policies", "gate", "gates", "password", "passwords", "verification", "verifications", "rate limit", "rate limits", "encryption", "hashing"],
+      "ignoredTriggerPhrases": {"policy": ["retry policy"]},
+      "references": ["references/authentication-authorization.md", "references/sessions-cookies-csrf.md", "references/security-rate-limiting-encryption.md"]
+    },
+    {
+      "id": "data",
+      "triggers": ["eloquent", "relationship", "relationships", "n+1", "serialization", "migration", "migrations", "schema", "schemas", "index", "indexes", "foreign key", "foreign keys", "query", "queries", "database", "databases", "transaction", "transactions", "concurrent", "idempotent", "seeder", "seeders", "factory", "factories"],
+      "ignoredTriggerPhrases": {"database": ["database test", "database tests"]},
+      "references": ["references/migrations-schema-seeding.md", "references/eloquent-models-relationships.md", "references/queries-performance.md", "references/transactions-concurrency-idempotency.md"]
+    },
+    {
+      "id": "search",
+      "triggers": ["search", "scout", "full text", "full-text", "vector", "vectors", "embedding", "embeddings", "rerank", "reranking", "relevance"],
+      "references": ["references/search-vector-reranking.md", "references/queries-performance.md", "references/migrations-schema-seeding.md"]
+    },
+    {
+      "id": "async",
+      "triggers": ["queue", "queues", "job", "jobs", "queue retry", "queue retries", "job retry", "job retries", "aftercommit", "batch", "batches", "chain", "chains", "cache", "caches", "redis", "cache lock", "cache locks", "atomic lock", "atomic locks", "distributed lock", "distributed locks", "event", "events", "listener", "listeners", "broadcast", "broadcasts", "scheduler", "schedulers"],
+      "ignoredTriggerPhrases": {
+        "queue": ["queue worker", "queue workers"],
+        "queues": ["queue workers"],
+        "cache": ["config cache"]
+      },
+      "references": ["references/cache-redis-locks.md", "references/queues-jobs.md", "references/events-broadcasting-scheduling.md"]
+    },
+    {
+      "id": "integrations",
+      "triggers": ["file upload", "file uploads", "upload", "uploads", "filesystem", "filesystems", "disk", "disks", "s3", "http client", "http clients", "webhook", "webhooks", "mail", "mails", "notification", "notifications", "localized", "localization", "localizations"],
+      "references": ["references/filesystem-http-webhooks.md", "references/mail-notifications-localization.md"]
+    },
+    {
+      "id": "ui-core",
+      "triggers": ["blade", "view", "views", "component", "components", "form", "forms", "vite", "asset", "assets", "frontend", "frontends", "starter kit", "starter kits", "dynamic laravel ui", "csrf"],
+      "references": ["references/blade-views-components.md", "references/frontend-vite-starter-kits.md", "references/sessions-cookies-csrf.md"]
+    },
+    {
+      "id": "ui-packages",
+      "triggers": ["livewire", "inertia", "flux", "react", "vue", "svelte", "tailwind"],
+      "packages": ["livewire", "inertia", "flux", "react", "vue", "svelte", "tailwind"],
+      "requiresExplicitRequest": true,
+      "references": ["references/frontend-vite-starter-kits.md", "references/official-packages.md"]
+    },
+    {
+      "id": "quality",
+      "triggers": ["test", "tests", "phpunit", "pest", "feature test", "http test", "database test", "console test", "browser test", "mock"],
+      "references": ["references/testing-quality.md"]
+    },
+    {
+      "id": "operations",
+      "triggers": ["deployment", "deployments", "production", "config cache", "queue worker", "queue workers", "supervisor", "supervisors", "octane", "horizon", "observability", "logging", "exception", "exceptions", "performance"],
+      "references": ["references/deployment-operations.md", "references/errors-logging-observability.md"]
+    },
+    {
+      "id": "package-router",
+      "triggers": ["sanctum", "passport", "horizon", "octane", "telescope", "pulse", "reverb", "scout", "socialite", "cashier", "pennant", "precognition", "folio", "fortify"],
+      "packages": ["sanctum", "passport", "horizon", "octane", "telescope", "pulse", "reverb", "scout", "socialite", "cashier", "pennant", "precognition", "folio", "fortify"],
+      "requiresExplicitRequest": true,
+      "references": ["references/official-packages.md"]
+    },
+    {
+      "id": "laravel-ai",
+      "triggers": ["boost", "ai sdk", "laravel ai", "mcp", "agentic development"],
+      "references": ["references/boost-ai-mcp.md"]
+    }
+  ]
+}

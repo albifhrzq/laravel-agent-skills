@@ -1,130 +1,78 @@
 ---
 name: laravel-code-reviewer
-description: Review Laravel 13 code changes with technical rigor. Use after implementing features, fixing bugs, changing APIs, editing auth/JWT behavior, adding migrations, modifying queues/jobs/events, or before claiming completion. Reviews correctness, Laravel conventions, API contract stability, validation, authorization, security, performance, tests, documentation, and production readiness.
-license: MIT
-metadata:
-  author: albifhrzq
-  version: "1.0.0"
-  framework: Laravel
-  laravelVersion: "13.x"
-  phpVersion: "8.3+"
-  type: codex-skill-wrapper
+description: Use when reviewing Laravel changes or before claiming Laravel work complete; performs evidence-based correctness, security, database, UI, API, queue, test, and production review through the canonical laravel-13 master skill.
 ---
 
 # Laravel Code Reviewer
 
-This is the Codex skill version of `agents/laravel-code-reviewer`.
+Review only. Do not modify code while operating in reviewer mode.
 
-Use this skill after implementation and before claiming completion.
+## Required grounding
 
-## Source of Truth
+1. Resolve `laravel/framework` from `composer.lock`, then `composer.json`, then `php artisan --version` when safe.
+2. Read the project `AGENTS.md`, requirement, diff, affected tests, and configuration.
+3. Read the installed sibling `laravel-13/SKILL.md` (commonly `.agents/skills/laravel-13/SKILL.md`; in this repository, `skills/laravel-13/SKILL.md`) and select references through its `routing-map.json`.
+4. If the detected version is not Laravel 13, report the mismatch and use version-matched official evidence for framework-specific findings.
+5. Verify package behavior against the installed package version.
 
-Before reviewing, read:
+## Review process
 
-1. Project root `AGENTS.md`.
-2. `skills/laravel-api-design/SKILL.md`.
-3. Relevant `skills/laravel-api-design/rules/*.md` files.
-4. Relevant `skills/laravel-api-design/references/*.md` files.
-5. Context7 Laravel 13 docs when framework behavior is unclear.
-6. Selected JWT package or identity provider docs when reviewing JWT behavior.
+1. Restate the observable requirement and review boundary.
+2. Inspect the full diff and trace every changed entry point to its exit and side effects.
+3. Check correctness before style.
+4. Check validation, authentication, authorization, session/CSRF, data exposure, and secrets.
+5. Check migrations, constraints, queries, transaction boundaries, concurrency, and N+1 risk.
+6. Check jobs, retries, after-commit behavior, events, notifications, webhooks, and idempotency.
+7. Check Blade escaping, form protection, Vite assets, and detected UI-stack boundaries.
+8. Check backward compatibility, deployment sequencing, workers, configuration, and rollback.
+9. Read and evaluate tests; do not infer they passed without fresh output.
+10. Report findings in severity order with exact evidence.
 
-## Review Categories
+## Severity
 
-Check:
+- **Critical**: security bypass, data corruption/loss, invalid migration, major runtime failure, or broken public contract.
+- **Important**: likely production defect, missing boundary test, concurrency/performance risk, or incompatible framework/package usage.
+- **Minor**: maintainability improvement that does not block the requirement.
+- **Question**: a decision cannot be evaluated from available evidence.
 
-- correctness against the requirement
-- Laravel conventions
-- API contract stability
-- FormRequest validation
-- authorization and guard boundaries
-- security and data exposure
-- performance and N+1 risk
-- side effects and idempotency
-- tests
-- documentation and production readiness
+## Finding format
 
-## Severity Levels
+For each finding include:
 
-### Critical
+- title and severity;
+- `path:line` location;
+- observed problem, not speculation;
+- user or production impact;
+- smallest safe correction;
+- Laravel/project evidence used.
 
-Must fix before merge or completion. Causes data corruption, auth bypass, broken API contract, security issue, migration danger, or major runtime failure.
+If there are no findings, state what was inspected, which tests were actually run, and what remains unverified.
 
-### Important
-
-Should fix before proceeding. Causes maintainability risk, missing important tests, performance problem, unclear API behavior, or likely production bug.
-
-### Minor
-
-Nice to improve. Does not block current task.
-
-### Question
-
-Needs clarification before judging.
-
-## Review Process
-
-1. Understand the requirement.
-2. Inspect changed files.
-3. Trace affected execution paths.
-4. Check Laravel-specific rules and references.
-5. Review tests and docs.
-6. Produce findings with evidence.
-7. Avoid vague comments.
-
-## Output Format
+## Output
 
 ```markdown
 ## Laravel Code Review
 
-### Review Scope
+### Scope and evidence
 - Requirement:
-- Changed areas:
-- Evidence reviewed:
-- Tests/docs reviewed:
+- Version evidence:
+- Diff reviewed:
+- References read:
+- Tests observed:
 
-### Summary
-- Overall risk: Low / Medium / High
-- Merge readiness: Ready / Not ready / Needs clarification
+### Critical
+- None, or findings.
 
-### Critical Findings
-1. **Title**
-   - Location: `path/to/file.php:line`
-   - Problem:
-   - Impact:
-   - Suggested fix:
-   - Evidence:
+### Important
+- None, or findings.
 
-### Important Findings
-1. **Title**
-   - Location:
-   - Problem:
-   - Impact:
-   - Suggested fix:
+### Minor
+- None, or findings.
 
-### Minor Findings
-- ...
+### Questions and verification gaps
+- None, or unresolved evidence.
 
-### Questions
-- ...
-
-### Positive Notes
-- Mention only concrete, useful positives.
-
-### Verification Checklist
-- [ ] Requirement satisfied
-- [ ] API contract stable or documented
-- [ ] Validation covered
-- [ ] Authorization covered
-- [ ] Tests adequate
-- [ ] Docs updated if needed
-- [ ] Production risks considered
+Laravel grounding: detected <version> from <evidence>; read <references>; verified against <primary source>.
 ```
 
-## Rules
-
-- Do not modify code while reviewing.
-- Do not approve without evidence.
-- Do not claim tests pass unless fresh output is available.
-- Do not invent line numbers.
-- Do not nitpick style while missing correctness, auth, data, or API contract risks.
-- If there are no findings, state what was checked and what evidence supports that.
+Do not approve based on intent, invent line numbers, or bury correctness/security findings under style notes.

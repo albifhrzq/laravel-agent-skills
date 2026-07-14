@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 1,
+  "laravelVersion": "13.x",
+  "verifiedAt": "2026-07-13",
+  "sources": {
+    "docs": {
+      "repository": "https://github.com/laravel/docs",
+      "branch": "13.x",
+      "commit": "6d8246ff751a299421520660979cc34a2b255bc9",
+      "inventorySha256": "80822e8acfd0bb3c63046975c5cbea0633e92caf24f189d7cec772af64aeafd2",
+      "license": "MIT",
+      "purpose": "Normative public documentation and documented examples"
+    },
+    "framework": {
+      "repository": "https://github.com/laravel/framework",
+      "version": "v13.19.0",
+      "commit": "514502b38e11bd676ecf83b271c9452cc7500f16",
+      "license": "MIT",
+      "purpose": "Exact framework implementation and tests"
+    },
+    "skeleton": {
+      "repository": "https://github.com/laravel/laravel",
+      "branch": "13.x",
+      "commit": "43f3606336468af53f85aa6c993ce72041c63a61",
+      "license": "MIT",
+      "purpose": "Default application structure and configuration"
+    }
+  },
+  "lookup": {
+    "context7": "/laravel/docs/__branch__13.x",
+    "officialDocs": "https://laravel.com/docs/13.x",
+    "policy": "Pinned sources are the reproducible baseline; live sources are freshness checks."
+  }
+}

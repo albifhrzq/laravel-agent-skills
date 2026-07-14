@@ -1,0 +1,6 @@
+interface:
+  display_name: "Laravel Code Reviewer"
+  short_description: "Review Laravel changes through the Laravel 13 master skill"
+  default_prompt: "Use $laravel-code-reviewer to review this Laravel change with version-matched evidence and no edits."
+policy:
+  allow_implicit_invocation: true

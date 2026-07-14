@@ -1,0 +1,573 @@
+{
+  "schemaVersion": 2,
+  "laravelVersion": "13.x",
+  "primaryTargets": [
+    "codex",
+    "claude"
+  ],
+  "minimumIndependentRuns": 3,
+  "passingScorePerRun": 0.9,
+  "requiredHighRiskPassRate": 1,
+  "requiredSemanticReviewPassRate": 1,
+  "protocol": "Run every case in a fresh context with the installed skill. Do not reveal expected references, assertions, forbidden patterns, or prior conclusions to the answering model.",
+  "semanticReview": {
+    "requiredForEveryCase": true,
+    "protocol": "An independent reviewer must inspect meaning, code validity, version fit, security invariants, and whether the answer follows the requested scope. A keyword match is not semantic proof.",
+    "requiredFields": [
+      "caseId",
+      "verdict",
+      "reviewer",
+      "notes"
+    ],
+    "allowedVerdicts": [
+      "pass",
+      "fail"
+    ]
+  },
+  "globalForbiddenPatterns": [
+    "(?:disable|remove|bypass|turn off)\\s+(?:the\\s+)?csrf",
+    "(?:skip|omit|remove|bypass)\\s+(?:the\\s+)?authoriz",
+    "(?:skip|omit|disable|bypass)\\s+(?:the\\s+)?(?:webhook\\s+)?signature"
+  ],
+  "cases": [
+    {
+      "id": "api-crud",
+      "prompt": "Build a Laravel API CRUD endpoint with FormRequest, policy, and JsonResource.",
+      "expectedReferences": [
+        "references/routing-middleware-controllers.md",
+        "references/requests-validation-responses.md",
+        "references/api-resources-errors-pagination.md",
+        "references/authentication-authorization.md",
+        "references/sessions-cookies-csrf.md",
+        "references/security-rate-limiting-encryption.md"
+      ],
+      "assertions": [
+        "FormRequest",
+        "Gate::authorize|#\\[Authorize",
+        "JsonResource"
+      ],
+      "forbiddenPatterns": [],
+      "risk": "high",
+      "setup": {
+        "explicitPackages": [],
+        "detectedPackages": []
+      }
+    },
+    {
+      "id": "session-csrf",
+      "prompt": "Debug a Laravel session cookie and CSRF token mismatch in a web form.",
+      "expectedReferences": [
+        "references/authentication-authorization.md",
+        "references/sessions-cookies-csrf.md",
+        "references/security-rate-limiting-encryption.md",
+        "references/blade-views-components.md",
+        "references/frontend-vite-starter-kits.md"
+      ],
+      "assertions": [
+        "PreventRequestForgery",
+        "@csrf|X-CSRF-TOKEN",
+        "session"
+      ],
+      "forbiddenPatterns": [
+        "(?:disable|remove|bypass|turn off)\\s+(?:the\\s+)?csrf"
+      ],
+      "risk": "high",
+      "setup": {
+        "explicitPackages": [],
+        "detectedPackages": []
+      }
+    },
+    {
+      "id": "authorization",
+      "prompt": "Review authentication and authorization policy boundaries for this controller.",
+      "expectedReferences": [
+        "references/routing-middleware-controllers.md",
+        "references/requests-validation-responses.md",
+        "references/api-resources-errors-pagination.md",
+        "references/authentication-authorization.md",
+        "references/sessions-cookies-csrf.md",
+        "references/security-rate-limiting-encryption.md"
+      ],
+      "assertions": [
+        "Gate::authorize|policy|#\\[Authorize"
+      ],
+      "forbiddenPatterns": [
+        "(?:skip|omit|remove|bypass)\\s+(?:the\\s+)?authoriz"
+      ],
+      "risk": "high",
+      "setup": {
+        "explicitPackages": [],
+        "detectedPackages": []
+      }
+    },
+    {
+      "id": "eloquent-n-plus-one",
+      "prompt": "Fix an Eloquent relationship N+1 query and serialization issue.",
+      "expectedReferences": [
+        "references/migrations-schema-seeding.md",
+        "references/eloquent-models-relationships.md",
+        "references/queries-performance.md",
+        "references/transactions-concurrency-idempotency.md"
+      ],
+      "assertions": [
+        "eager load|with\\(",
+        "whenLoaded|preventLazyLoading"
+      ],
+      "forbiddenPatterns": [],
+      "risk": "normal",
+      "setup": {
+        "explicitPackages": [],
+        "detectedPackages": []
+      }
+    },
+    {
+      "id": "migration-index",
+      "prompt": "Design a zero-downtime migration with indexes and foreign keys.",
+      "expectedReferences": [
+        "references/migrations-schema-seeding.md",
+        "references/eloquent-models-relationships.md",
+        "references/queries-performance.md",
+        "references/transactions-concurrency-idempotency.md"
+      ],
+      "assertions": [
+        "foreign key|constrained",
+        "index",
+        "deployment|zero-downtime"
+      ],
+      "forbiddenPatterns": [],
+      "risk": "normal",
+      "setup": {
+        "explicitPackages": [],
+        "detectedPackages": []
+      }
+    },
+    {
+      "id": "transaction-idempotency",
+      "prompt": "Make this checkout transaction concurrent-safe and idempotent.",
+      "expectedReferences": [
+        "references/migrations-schema-seeding.md",
+        "references/eloquent-models-relationships.md",
+        "references/queries-performance.md",
+        "references/transactions-concurrency-idempotency.md"
+      ],
+      "assertions": [
+        "transaction",
+        "unique constraint|unique index",
+        "duplicate|race"
+      ],
+      "forbiddenPatterns": [],
+      "risk": "high",
+      "setup": {
+        "explicitPackages": [],
+        "detectedPackages": []
+      }
+    },
+    {
+      "id": "queue-after-commit",
+      "prompt": "Configure a queue job retry policy and dispatch it afterCommit.",
+      "expectedReferences": [
+        "references/cache-redis-locks.md",
+        "references/queues-jobs.md",
+        "references/events-broadcasting-scheduling.md"
+      ],
+      "assertions": [
+        "afterCommit|after_commit",
+        "retry|backoff|tries"
+      ],
+      "forbiddenPatterns": [],
+      "risk": "normal",
+      "setup": {
+        "explicitPackages": [],
+        "detectedPackages": []
+      }
+    },
+    {
+      "id": "cache-lock",
+      "prompt": "Prevent duplicate work using a Laravel cache lock and Redis.",
+      "expectedReferences": [
+        "references/cache-redis-locks.md",
+        "references/queues-jobs.md",
+        "references/events-broadcasting-scheduling.md"
+      ],
+      "assertions": [
+        "Cache::lock|atomic lock",
+        "owner|release"
+      ],
+      "forbiddenPatterns": [],
+      "risk": "normal",
+      "setup": {
+        "explicitPackages": [],
+        "detectedPackages": []
+      }
+    },
+    {
+      "id": "events",
+      "prompt": "Trace an event, listener, broadcast, notification, and scheduler flow.",
+      "expectedReferences": [
+        "references/cache-redis-locks.md",
+        "references/queues-jobs.md",
+        "references/events-broadcasting-scheduling.md",
+        "references/filesystem-http-webhooks.md",
+        "references/mail-notifications-localization.md"
+      ],
+      "assertions": [
+        "event",
+        "listener",
+        "broadcast|schedule"
+      ],
+      "forbiddenPatterns": [],
+      "risk": "normal",
+      "setup": {
+        "explicitPackages": [],
+        "detectedPackages": []
+      }
+    },
+    {
+      "id": "upload-storage",
+      "prompt": "Validate a file upload and store it safely on an S3 filesystem disk.",
+      "expectedReferences": [
+        "references/filesystem-http-webhooks.md",
+        "references/mail-notifications-localization.md"
+      ],
+      "assertions": [
+        "validate|mimes|max",
+        "Storage|filesystem",
+        "visibility|private"
+      ],
+      "forbiddenPatterns": [
+        "getClientOriginalName\\(\\).*storeAs",
+        "storeAs\\([^\\n]+['\"]public['\"]"
+      ],
+      "risk": "high",
+      "setup": {
+        "explicitPackages": [],
+        "detectedPackages": []
+      }
+    },
+    {
+      "id": "webhook-http-client",
+      "prompt": "Implement a signed webhook using Laravel HTTP client retries.",
+      "expectedReferences": [
+        "references/filesystem-http-webhooks.md",
+        "references/mail-notifications-localization.md"
+      ],
+      "assertions": [
+        "raw body|getContent",
+        "hash_equals|constant-time",
+        "timestamp|freshness|tolerance",
+        "unique constraint|unique index",
+        "retry",
+        "idempotent|deduplic"
+      ],
+      "forbiddenPatterns": [
+        "(?:skip|omit|disable|bypass)\\s+(?:the\\s+)?signature",
+        "hash_hmac\\([^\\n]+,\\s*['\"]{2}\\s*\\)"
+      ],
+      "risk": "high",
+      "setup": {
+        "explicitPackages": [],
+        "detectedPackages": []
+      }
+    },
+    {
+      "id": "mail-localization",
+      "prompt": "Send a localized mail and notification from Laravel.",
+      "expectedReferences": [
+        "references/filesystem-http-webhooks.md",
+        "references/mail-notifications-localization.md"
+      ],
+      "assertions": [
+        "locale|localiz",
+        "mail",
+        "notification"
+      ],
+      "forbiddenPatterns": [],
+      "risk": "normal",
+      "setup": {
+        "explicitPackages": [],
+        "detectedPackages": []
+      }
+    },
+    {
+      "id": "blade-vite",
+      "prompt": "Build a Blade component form and bundle its assets with Vite.",
+      "expectedReferences": [
+        "references/blade-views-components.md",
+        "references/frontend-vite-starter-kits.md",
+        "references/sessions-cookies-csrf.md"
+      ],
+      "assertions": [
+        "Blade|component",
+        "@csrf",
+        "@vite"
+      ],
+      "forbiddenPatterns": [],
+      "risk": "normal",
+      "setup": {
+        "explicitPackages": [],
+        "detectedPackages": []
+      }
+    },
+    {
+      "id": "livewire-explicit",
+      "prompt": "The user explicitly requests a Livewire component.",
+      "expectedReferences": [
+        "references/blade-views-components.md",
+        "references/frontend-vite-starter-kits.md",
+        "references/sessions-cookies-csrf.md",
+        "references/official-packages.md"
+      ],
+      "assertions": [
+        "explicit|requested|detected",
+        "Livewire"
+      ],
+      "forbiddenPatterns": [],
+      "risk": "normal",
+      "setup": {
+        "explicitPackages": [
+          "livewire"
+        ],
+        "detectedPackages": []
+      }
+    },
+    {
+      "id": "livewire-not-requested",
+      "prompt": "Build a dynamic Laravel UI without choosing a package.",
+      "expectedReferences": [
+        "references/blade-views-components.md",
+        "references/frontend-vite-starter-kits.md",
+        "references/sessions-cookies-csrf.md"
+      ],
+      "assertions": [
+        "Blade|Vite",
+        "explicit request|detected package"
+      ],
+      "forbiddenPatterns": [
+        "(?:run|use)\\s+composer\\s+require\\s+livewire/livewire"
+      ],
+      "risk": "normal",
+      "setup": {
+        "explicitPackages": [],
+        "detectedPackages": []
+      }
+    },
+    {
+      "id": "tests",
+      "prompt": "Write feature tests, HTTP tests, database tests, console tests, and browser tests.",
+      "expectedReferences": [
+        "references/testing-quality.md"
+      ],
+      "assertions": [
+        "feature|HTTP test",
+        "database",
+        "console|browser"
+      ],
+      "forbiddenPatterns": [],
+      "risk": "normal",
+      "setup": {
+        "explicitPackages": [],
+        "detectedPackages": []
+      }
+    },
+    {
+      "id": "deployment",
+      "prompt": "Prepare a production deployment with config cache and queue workers.",
+      "expectedReferences": [
+        "references/deployment-operations.md",
+        "references/errors-logging-observability.md"
+      ],
+      "assertions": [
+        "config:cache",
+        "queue worker|queue:restart",
+        "health|rollback"
+      ],
+      "forbiddenPatterns": [],
+      "risk": "normal",
+      "setup": {
+        "explicitPackages": [],
+        "detectedPackages": []
+      }
+    },
+    {
+      "id": "official-package",
+      "prompt": "Configure Sanctum and Horizon from packages in composer.lock.",
+      "expectedReferences": [
+        "references/version-grounding.md",
+        "references/architecture-configuration.md",
+        "references/deployment-operations.md",
+        "references/errors-logging-observability.md",
+        "references/official-packages.md"
+      ],
+      "assertions": [
+        "composer.lock",
+        "Sanctum",
+        "Horizon"
+      ],
+      "forbiddenPatterns": [],
+      "risk": "normal",
+      "setup": {
+        "explicitPackages": [],
+        "detectedPackages": [
+          "sanctum",
+          "horizon"
+        ]
+      }
+    },
+    {
+      "id": "boost-ai-mcp",
+      "prompt": "Use Laravel Boost, AI SDK, and MCP with version-aware documentation.",
+      "expectedReferences": [
+        "references/version-grounding.md",
+        "references/architecture-configuration.md",
+        "references/boost-ai-mcp.md"
+      ],
+      "assertions": [
+        "Boost",
+        "AI SDK|laravel/ai",
+        "MCP|laravel/mcp",
+        "authentication|guard",
+        "Gate::authorize|policy|authoriz",
+        "throttle|rate limit",
+        "prompt injection|untrusted",
+        "external action|approval|idempot"
+      ],
+      "forbiddenPatterns": [
+        "(?:skip|omit|disable|bypass)\\s+(?:the\\s+)?(?:authentication|authorization|rate limit)",
+        "(?:trust|execute|render)\\s+(?:the\\s+)?(?:model|tool)\\s+output\\s+(?:directly|without validation)"
+      ],
+      "risk": "high",
+      "setup": {
+        "explicitPackages": [],
+        "detectedPackages": []
+      }
+    },
+    {
+      "id": "version-resolution",
+      "prompt": "composer.lock says Laravel 12 but the request asks for a Laravel 13-only API.",
+      "expectedReferences": [
+        "references/version-grounding.md",
+        "references/architecture-configuration.md"
+      ],
+      "assertions": [
+        "version mismatch|Laravel 12",
+        "composer.lock",
+        "version-matched"
+      ],
+      "forbiddenPatterns": [
+        "apply Laravel 13-only API without warning"
+      ],
+      "risk": "high",
+      "setup": {
+        "explicitPackages": [],
+        "detectedPackages": []
+      }
+    },
+    {
+      "id": "core-utilities",
+      "prompt": "Process a large file with LazyCollection and the Laravel Process facade without shell injection.",
+      "expectedReferences": [
+        "references/collections-strings-processes.md"
+      ],
+      "assertions": [
+        "LazyCollection",
+        "Process::|Process facade",
+        "timeout|throw|failed"
+      ],
+      "forbiddenPatterns": [],
+      "risk": "high",
+      "setup": {
+        "explicitPackages": [],
+        "detectedPackages": []
+      }
+    },
+    {
+      "id": "upgrade-12-to-13",
+      "prompt": "Plan a Laravel 12 to Laravel 13 upgrade from composer.lock and cover the important compatibility changes.",
+      "expectedReferences": [
+        "references/version-grounding.md",
+        "references/architecture-configuration.md"
+      ],
+      "assertions": [
+        "laravel/framework",
+        "\\^13\\.0",
+        "PreventRequestForgery",
+        "serializable_classes|upsert|QueueBusy",
+        "rollback|test"
+      ],
+      "forbiddenPatterns": [],
+      "risk": "high",
+      "setup": {
+        "explicitPackages": [],
+        "detectedPackages": []
+      }
+    },
+    {
+      "id": "search-vector",
+      "prompt": "Implement tenant-scoped full-text search and vector similarity with embeddings and reranking.",
+      "expectedReferences": [
+        "references/search-vector-reranking.md",
+        "references/queries-performance.md",
+        "references/migrations-schema-seeding.md"
+      ],
+      "assertions": [
+        "whereFullText",
+        "whereVectorSimilarTo",
+        "pgvector|PostgreSQL",
+        "authorization|tenant"
+      ],
+      "forbiddenPatterns": [],
+      "risk": "normal",
+      "setup": {
+        "explicitPackages": [],
+        "detectedPackages": []
+      }
+    },
+    {
+      "id": "scout-database-engine",
+      "prompt": "Configure detected Laravel Scout using its database engine and Searchable model.",
+      "expectedReferences": [
+        "references/search-vector-reranking.md",
+        "references/queries-performance.md",
+        "references/migrations-schema-seeding.md",
+        "references/official-packages.md"
+      ],
+      "assertions": [
+        "Scout",
+        "Searchable",
+        "toSearchableArray",
+        "database engine"
+      ],
+      "forbiddenPatterns": [],
+      "risk": "normal",
+      "setup": {
+        "explicitPackages": [],
+        "detectedPackages": [
+          "scout"
+        ]
+      }
+    },
+    {
+      "id": "svelte-explicit",
+      "prompt": "The user explicitly requests the official Svelte starter kit with Vite.",
+      "expectedReferences": [
+        "references/blade-views-components.md",
+        "references/frontend-vite-starter-kits.md",
+        "references/sessions-cookies-csrf.md",
+        "references/official-packages.md"
+      ],
+      "assertions": [
+        "Svelte",
+        "explicit|requested|detected",
+        "Vite|starter kit"
+      ],
+      "forbiddenPatterns": [],
+      "risk": "normal",
+      "setup": {
+        "explicitPackages": [
+          "svelte"
+        ],
+        "detectedPackages": []
+      }
+    }
+  ]
+}

@@ -1,0 +1,6 @@
+interface:
+  display_name: "Laravel 13"
+  short_description: "Laravel 13 source-grounded engineering"
+  default_prompt: "Use $laravel-13 to implement this Laravel task using the installed version, project conventions, and verified references."
+policy:
+  allow_implicit_invocation: true

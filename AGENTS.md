@@ -8,10 +8,13 @@ Keep this repository focused on Laravel and Laravel-adjacent engineering workflo
 
 - Laravel API design.
 - Laravel backend architecture.
+- Laravel HTTP session, cookies, CSRF, authentication, and authorization.
+- Laravel core UI with Blade, views, components, forms, URLs, and Vite.
 - Laravel testing.
 - Laravel queues and jobs.
 - Laravel database and migrations.
 - Laravel deployment and DevOps.
+- Version-aware routing for official Laravel and detected UI packages.
 - Security practices relevant to Laravel applications.
 
 Avoid adding unrelated framework skills unless they directly support Laravel projects.
@@ -20,13 +23,15 @@ Avoid adding unrelated framework skills unless they directly support Laravel pro
 
 For Laravel-specific guidance, check documentation before editing rules:
 
-1. Use Context7 Laravel docs when Context7 MCP is available.
-2. Otherwise use the official Laravel documentation for the target version.
-3. Project-level conventions may be stricter than Laravel defaults, but they should be marked as project conventions.
+1. Resolve the installed framework and package versions and inspect project code, configuration, tests, and instructions.
+2. Use the pinned official Laravel sources in the skill's `source-lock.json`.
+3. Use Laravel Boost search when it is installed and available.
+4. Use Context7 Laravel docs and live official docs as version-aware freshness checks.
+5. Mark project conventions, derived recommendations, and package behavior separately from official framework behavior.
 
 ## Skill Structure
 
-Each skill should live under:
+The canonical Laravel 13 master skill should live under:
 
 ```text
 skills/<skill-name>/
@@ -34,10 +39,19 @@ skills/<skill-name>/
 ├── README.md
 ├── AGENTS.md
 ├── metadata.json
-└── rules/
+├── source-lock.json
+├── coverage-map.json
+├── provenance.json
+├── routing-map.json
+├── rules/
+└── references/
 ```
 
-A small skill may omit `rules/`, but mature skills should split detailed guidance into rule files.
+The master skill also owns source locks, routing, coverage, provenance, and
+compiled references. Lightweight workflow skills such as reviewer and tracer
+contain `SKILL.md` plus `agents/openai.yaml`; they do not duplicate the master
+knowledge artifacts, and they must resolve and depend on the installed master
+skill.
 
 ## Writing Standards
 
@@ -63,3 +77,5 @@ A new skill is ready when it includes:
 - Rule files for important areas.
 - Practical Laravel code examples.
 - Documentation/source grounding notes.
+- Complete topic routing and official-documentation coverage.
+- Structural, source, snippet, install, drift, and behavioral validation.

@@ -1,116 +1,70 @@
 # Laravel Agent Skills
 
-A focused collection of agent skills for Laravel projects, especially Laravel 13 API development with Codex, Claude Code, Cursor, Windsurf, and other tools that understand `SKILL.md`-style skills.
+A source-grounded Laravel 13 skill pack for Codex, Claude Code, Cursor, Windsurf, and other agents that support `SKILL.md` skills.
 
-This repository is intentionally Laravel-focused. It is not a generic full-stack skill collection.
+## Canonical skill
 
-## Available Skills
+`laravel-13` is the single v2 knowledge base for Laravel backend and frontend work: architecture, HTTP/API, authentication, authorization, session, CSRF, database, Eloquent, queues, cache, integrations, testing, deployment, Blade, Vite, core UI, and installed first-party packages.
+
+```bash
+npx skills add albifhrzq/laravel-agent-skills --skill laravel-13
+```
+
+It detects the installed framework version and reads project conventions before applying Laravel 13 defaults. Twenty-six detailed references are selected through a deterministic routing map and grounded in pinned official sources. Core Blade/Vite UI is included; optional stacks such as Livewire, Inertia, React, Vue, Svelte, and Tailwind are loaded only when detected or explicitly requested.
+
+## Optional workflow skills
+
+The tracer and reviewer require `laravel-13` to be installed alongside them:
+
+```bash
+npx skills add albifhrzq/laravel-agent-skills --skill laravel-13
+npx skills add albifhrzq/laravel-agent-skills --skill laravel-code-tracer
+npx skills add albifhrzq/laravel-agent-skills --skill laravel-code-reviewer
+```
 
 | Skill | Purpose |
 |---|---|
-| `laravel-api-design` | Laravel 13 API route setup, REST route design, FormRequest validation, API Resources, JSON:API Resources, error envelopes, auth, authorization, JWT lifecycle, pagination, idempotency, rate limiting, OpenAPI docs, and feature tests. |
-| `laravel-database-design` | Laravel 13 database design for migrations, schema, Eloquent relationships, constraints, indexes, query performance, transactions, seeders, and production migration safety. |
-| `laravel-code-tracer` | Codex skill wrapper for tracing Laravel execution flow from route/command/job/event/webhook to validation, authorization, business logic, database, side effects, and response. |
-| `laravel-code-reviewer` | Codex skill wrapper for reviewing Laravel code changes for correctness, API contract stability, validation, authorization, security, performance, tests, docs, and production readiness. |
+| `laravel-13` | Canonical Laravel 13 knowledge, source resolution, and topic routing. |
+| `laravel-code-tracer` | Read-only end-to-end Laravel execution tracing. |
+| `laravel-code-reviewer` | Read-only evidence-based Laravel review. |
 
-## Available Agents
+## Source and verification model
 
-| Agent | Purpose |
-|---|---|
-| `laravel-code-tracer` | Agent version of the Laravel execution flow tracer. |
-| `laravel-code-reviewer` | Agent version of the Laravel code reviewer. |
+- Project version, code, configuration, tests, and valid conventions have precedence.
+- `skills/laravel-13/source-lock.json` pins official docs, framework, and application skeleton revisions.
+- `coverage-map.json` maps all official Laravel 13 documentation pages.
+- `provenance.json` classifies rules and references.
+- `routing-map.json` controls progressive disclosure and optional-package boundaries.
+- Context7 and Laravel Boost provide version-aware lookup; live docs are used as freshness checks.
 
-## Install Skills for Codex
-
-Install API and database design skills:
-
-```bash
-npx skills add albifhrzq/laravel-agent-skills --skill laravel-api-design
-npx skills add albifhrzq/laravel-agent-skills --skill laravel-database-design
-```
-
-Install tracer and reviewer as Codex-visible skills:
+Run the local validation suite:
 
 ```bash
-npx skills add albifhrzq/laravel-agent-skills --skill laravel-code-tracer
-npx skills add albifhrzq/laravel-agent-skills --skill laravel-code-reviewer
+npm test
+npm run test:coverage
+npm run test:fixture:security
+npm run test:fixture:sqlite
+npm run check:generated
+npm run check:source-drift
 ```
 
-Install all current skills:
+The source verifier checks pinned branch/tag integrity, the latest stable
+Laravel 13 release, and the exact 103-page documentation inventory. Scheduled
+CI also exercises the database fixture on MySQL and PostgreSQL.
+
+Behavioral model responses use a separate semantic review and at least three
+fresh runs per target. See `evals/laravel-13/README.md`; the strict release
+command requires both configured primary targets.
+
+Regenerate compiled artifacts after editing canonical rules or references:
 
 ```bash
-npx skills add albifhrzq/laravel-agent-skills --skill laravel-api-design
-npx skills add albifhrzq/laravel-agent-skills --skill laravel-database-design
-npx skills add albifhrzq/laravel-agent-skills --skill laravel-code-tracer
-npx skills add albifhrzq/laravel-agent-skills --skill laravel-code-reviewer
+npm run build
 ```
 
-## Manual Copy
+## Repository boundaries
 
-```text
-.agents/skills/laravel-api-design/
-.agents/skills/laravel-database-design/
-.agents/skills/laravel-code-tracer/
-.agents/skills/laravel-code-reviewer/
-```
-
-## Agent Layout
-
-```text
-agents/
-├── README.md
-├── laravel-code-tracer/
-│   └── SKILL.md
-└── laravel-code-reviewer/
-    └── SKILL.md
-```
-
-## Skill Layout
-
-Each mature skill uses two guidance layers:
-
-```text
-skills/<skill-name>/
-├── SKILL.md
-├── AGENTS.md
-├── rules/        # short rules, guardrails, acceptance criteria
-└── references/   # longer guides, examples, trade-offs, edge cases
-```
-
-## Documentation Grounding
-
-When Context7 MCP is available in the coding-agent environment, agents should fetch Laravel 13 docs through Context7 before editing Laravel-specific behavior. If Context7 is unavailable, use the official Laravel 13 documentation directly.
-
-## Recommended Project Setup
-
-In each Laravel project, combine these skills with a project-level `AGENTS.md` that defines:
-
-- Laravel/PHP version.
-- App architecture conventions.
-- API response contract.
-- Auth guard/token strategy.
-- Database conventions.
-- Roles and permissions.
-- Test commands.
-- Deployment constraints.
-- Things the agent must never change without explicit approval.
-
-## Example Project-Level Usage
-
-```text
-your-laravel-project/
-├── AGENTS.md
-├── .agents/
-│   └── skills/
-│       ├── laravel-api-design/
-│       ├── laravel-database-design/
-│       ├── laravel-code-tracer/
-│       └── laravel-code-reviewer/
-├── app/
-├── database/
-├── routes/
-└── tests/
-```
+The repository remains Laravel-focused. Optional UI and first-party package guidance is loaded only when detected in the target project or explicitly requested by the user.
 
 ## License
 

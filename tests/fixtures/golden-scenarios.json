@@ -1,0 +1,135 @@
+[
+  {
+    "id": "api-crud",
+    "prompt": "Build a Laravel API CRUD endpoint with FormRequest, policy, and JsonResource.",
+    "expectedRoutes": ["http-api", "http-security"]
+  },
+  {
+    "id": "session-csrf",
+    "prompt": "Debug a Laravel session cookie and CSRF token mismatch in a web form.",
+    "expectedRoutes": ["http-security", "ui-core"]
+  },
+  {
+    "id": "authorization",
+    "prompt": "Review authentication and authorization policy boundaries for this controller.",
+    "expectedRoutes": ["http-api", "http-security"]
+  },
+  {
+    "id": "eloquent-n-plus-one",
+    "prompt": "Fix an Eloquent relationship N+1 query and serialization issue.",
+    "expectedRoutes": ["data"]
+  },
+  {
+    "id": "migration-index",
+    "prompt": "Design a zero-downtime migration with indexes and foreign keys.",
+    "expectedRoutes": ["data"]
+  },
+  {
+    "id": "transaction-idempotency",
+    "prompt": "Make this checkout transaction concurrent-safe and idempotent.",
+    "expectedRoutes": ["data"]
+  },
+  {
+    "id": "queue-after-commit",
+    "prompt": "Configure a queue job retry policy and dispatch it afterCommit.",
+    "expectedRoutes": ["async"]
+  },
+  {
+    "id": "cache-lock",
+    "prompt": "Prevent duplicate work using a Laravel cache lock and Redis.",
+    "expectedRoutes": ["async"]
+  },
+  {
+    "id": "events",
+    "prompt": "Trace an event, listener, broadcast, notification, and scheduler flow.",
+    "expectedRoutes": ["async", "integrations"]
+  },
+  {
+    "id": "upload-storage",
+    "prompt": "Validate a file upload and store it safely on an S3 filesystem disk.",
+    "expectedRoutes": ["integrations"]
+  },
+  {
+    "id": "webhook-http-client",
+    "prompt": "Implement a signed webhook using Laravel HTTP client retries.",
+    "expectedRoutes": ["integrations"]
+  },
+  {
+    "id": "mail-localization",
+    "prompt": "Send a localized mail and notification from Laravel.",
+    "expectedRoutes": ["integrations"]
+  },
+  {
+    "id": "blade-vite",
+    "prompt": "Build a Blade component form and bundle its assets with Vite.",
+    "expectedRoutes": ["ui-core"]
+  },
+  {
+    "id": "livewire-explicit",
+    "prompt": "The user explicitly requests a Livewire component.",
+    "explicitPackages": ["livewire"],
+    "expectedRoutes": ["ui-core", "ui-packages"]
+  },
+  {
+    "id": "livewire-not-requested",
+    "prompt": "Build a dynamic Laravel UI without choosing a package.",
+    "expectedRoutes": ["ui-core"],
+    "forbiddenRoutes": ["ui-packages"]
+  },
+  {
+    "id": "tests",
+    "prompt": "Write feature tests, HTTP tests, database tests, console tests, and browser tests.",
+    "expectedRoutes": ["quality"]
+  },
+  {
+    "id": "deployment",
+    "prompt": "Prepare a production deployment with config cache and queue workers.",
+    "expectedRoutes": ["operations"]
+  },
+  {
+    "id": "official-package",
+    "prompt": "Configure Sanctum and Horizon from packages in composer.lock.",
+    "detectedPackages": ["sanctum", "horizon"],
+    "expectedRoutes": ["foundation", "operations", "package-router"]
+  },
+  {
+    "id": "boost-ai-mcp",
+    "prompt": "Use Laravel Boost, AI SDK, and MCP with version-aware documentation.",
+    "expectedRoutes": ["foundation", "laravel-ai"]
+  },
+  {
+    "id": "version-resolution",
+    "prompt": "composer.lock says Laravel 12 but the request asks for a Laravel 13-only API.",
+    "detectedVersion": "12.x",
+    "requestedVersion": "13.x",
+    "expectedRoutes": ["foundation"]
+  },
+  {
+    "id": "core-utilities",
+    "prompt": "Process a large file with LazyCollection and the Laravel Process facade without shell injection.",
+    "expectedRoutes": ["core-utilities"]
+  },
+  {
+    "id": "upgrade-12-to-13",
+    "prompt": "Plan a Laravel 12 to Laravel 13 upgrade from composer.lock and cover the important compatibility changes.",
+    "expectedRoutes": ["foundation"]
+  },
+  {
+    "id": "search-vector",
+    "prompt": "Implement tenant-scoped full-text search and vector similarity with embeddings and reranking.",
+    "expectedRoutes": ["search"]
+  },
+  {
+    "id": "scout-database-engine",
+    "prompt": "Configure detected Laravel Scout using its database engine and Searchable model.",
+    "detectedPackages": ["scout"],
+    "expectedRoutes": ["search", "package-router"],
+    "allowedRoutes": ["data"]
+  },
+  {
+    "id": "svelte-explicit",
+    "prompt": "The user explicitly requests the official Svelte starter kit with Vite.",
+    "explicitPackages": ["svelte"],
+    "expectedRoutes": ["ui-core", "ui-packages"]
+  }
+]

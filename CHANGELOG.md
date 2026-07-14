@@ -4,6 +4,30 @@ All notable changes to this repository will be documented in this file.
 
 This project follows a practical versioning style per skill. Versions are recorded in each skill's `metadata.json` and `SKILL.md`.
 
+## 2026-07-13 — v2.0.0
+
+### Added
+
+- Added the canonical `laravel-13` full-stack master skill.
+- Added source locking, full Laravel 13 documentation coverage, provenance, deterministic routing, compiled-guide drift detection, snippet linting, install smoke, and static golden scenarios.
+- Added deep coverage for session, CSRF, Blade, Vite, core UI, queues, cache, integrations, testing, deployment, and official package routing.
+- Added dedicated deep references for Collections, helpers, strings, contracts, Process, full-text search, vector similarity, embeddings, reranking, and Laravel 12-to-13 upgrades.
+- Added a booted Laravel Testbench fixture with runtime tests for CSRF, session rotation, Gate authorization, private uploads, webhook HMAC, rate limiting, encryption, and hashing.
+- Added a multi-run behavioral evaluation gate with independent semantic review, mandatory high-risk cases, and Codex/Claude target validation.
+- Added source-backed documentation inventory hashing, latest stable Laravel 13 release detection, generated-artifact checks, dependency audits, and SHA-pinned GitHub Actions.
+
+### Changed
+
+- Updated the official framework baseline to Laravel `v13.19.0`.
+- Made reviewer and tracer version-aware dependencies of the master skill and generated their agent copies from canonical skill sources.
+- Corrected authorization examples for the empty Laravel 13 base controller and removed package-specific APIs from core defaults.
+- Included core Blade/Vite UI by default while keeping Livewire, Inertia, Flux, React, Vue, Svelte, Tailwind, and other optional stacks detection- or request-gated.
+- Conservatively classified mixed official, derived, and project-convention reference files in machine-readable provenance.
+
+### Removed
+
+- Removed standalone `laravel-api-design` and `laravel-database-design` skills in favor of the v2 master skill.
+
 ## 2026-06-18
 
 ### Added

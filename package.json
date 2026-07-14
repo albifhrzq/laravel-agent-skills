@@ -1,0 +1,34 @@
+{
+  "name": "laravel-agent-skills",
+  "version": "2.0.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22.8.0"
+  },
+  "scripts": {
+    "build": "npm run build:coverage && npm run build:evals && npm run build:provenance && npm run build:agents && npm run build:workflows",
+    "build:coverage": "node scripts/build-coverage-map.mjs",
+    "build:evals": "node scripts/build-eval-manifest.mjs",
+    "build:provenance": "node scripts/build-provenance.mjs",
+    "build:agents": "node scripts/build-agent-guide.mjs",
+    "build:workflows": "node scripts/build-workflow-agents.mjs",
+    "test": "node --test --test-reporter=spec tests/*.test.mjs",
+    "test:contract": "node --test --test-reporter=spec tests/laravel-13-contract.test.mjs",
+    "test:migration": "node --test --test-reporter=spec --test-name-pattern='breaking migration' tests/laravel-13-contract.test.mjs",
+    "validate:structure": "node --test --test-reporter=spec --test-name-pattern='canonical structure|runtime contract' tests/laravel-13-contract.test.mjs",
+    "validate:sources": "node --test --test-reporter=spec --test-name-pattern='source lock' tests/laravel-13-contract.test.mjs",
+    "check:drift": "node --test --test-reporter=spec --test-name-pattern='generated' tests/laravel-13-contract.test.mjs",
+    "check:generated": "node scripts/build-coverage-map.mjs --check && node scripts/build-eval-manifest.mjs --check && node scripts/build-provenance.mjs --check && npm run check:drift",
+    "check:source-drift": "node scripts/check-source-drift.mjs",
+    "test:snippets": "node --test --test-reporter=spec --test-name-pattern='PHP snippets' tests/laravel-13-contract.test.mjs",
+    "test:install": "node --test --test-reporter=spec --test-name-pattern='install smoke' tests/laravel-13-contract.test.mjs",
+    "eval:static": "node --test --test-reporter=spec --test-name-pattern='static golden' tests/laravel-13-contract.test.mjs",
+    "eval:model": "node scripts/score-model-eval.mjs",
+    "test:coverage": "node --test --experimental-test-coverage --test-coverage-lines=80 --test-coverage-branches=80 --test-coverage-functions=80 tests/*.test.mjs",
+    "test:fixture:sqlite": "composer --working-dir=tests/fixtures/laravel-app test:sqlite",
+    "test:fixture:security": "composer --working-dir=tests/fixtures/laravel-app test:security",
+    "test:fixture:mysql": "composer --working-dir=tests/fixtures/laravel-app test:mysql",
+    "test:fixture:pgsql": "composer --working-dir=tests/fixtures/laravel-app test:pgsql"
+  }
+}

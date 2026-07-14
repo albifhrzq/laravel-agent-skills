@@ -1,0 +1,6 @@
+interface:
+  display_name: "Laravel Code Tracer"
+  short_description: "Trace Laravel execution through the Laravel 13 master skill"
+  default_prompt: "Use $laravel-code-tracer to trace this Laravel flow end to end with version-matched evidence and no edits."
+policy:
+  allow_implicit_invocation: true
